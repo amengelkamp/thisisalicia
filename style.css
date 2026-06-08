@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --accent: #D32F2F;
+  --accent: #4046ca;
   --text: #1a1a1a;
   --muted: #777;
   --subtle: #aaa;
@@ -417,6 +417,13 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.work-project-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
 
 .work-project-header {
@@ -544,33 +551,35 @@ main {
 .before-after {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 32px;
 }
 
 .ba-card {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 18px 20px;
+  padding: 28px 28px 32px;
+  background: white;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 16px;
 }
 
 .ba-label {
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--subtle);
-  margin-bottom: 14px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
 }
 
 .txn-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .txn-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: #4caf88;
   flex-shrink: 0;
@@ -581,29 +590,29 @@ main {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
 }
 
 .txn-payee {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
 .txn-memo {
-  font-size: 12px;
+  font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.txn-memo.raw { color: var(--subtle); font-style: italic; }
-.txn-memo.enriched { color: #b85c00; font-weight: 500; }
+.txn-memo.raw { color: #aaa; font-style: italic; }
+.txn-memo.enriched { color: #b85c00; font-weight: 600; }
 
 .txn-amount {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
   flex-shrink: 0;
 }
 
