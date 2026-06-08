@@ -1,0 +1,495 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #D32F2F;
+  --text: #1a1a1a;
+  --muted: #777;
+  --subtle: #aaa;
+  --bg: #ffffff;
+  --card: #f2f2f2;
+  --border: #e0e0e0;
+  --nav-bg: #e5e5e5;
+  --max: 660px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── Floating pill nav ── */
+.nav-fixed {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--nav-bg);
+  border-radius: 100px;
+  padding: 5px;
+  pointer-events: all;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+.nav-pill a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.nav-pill a:hover { color: var(--text); }
+
+.nav-pill a.active {
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+}
+
+.work-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Layout ── */
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 96px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 36px;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* ── Hero (About page top) ── */
+.hero {
+  text-align: center;
+  padding: 40px 36px 36px;
+}
+
+.hero-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.hero-name {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.hero-role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* ── About text ── */
+.about-text p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.about-text p + p {
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+/* ── Work card ── */
+.work-card-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.work-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.work-card-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* ── Contact ── */
+.contact-wrap {
+  text-align: center;
+}
+
+.contact-wrap h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 28px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ── */
+.btn, .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #dedee0;
+  color: var(--text);
+  background: transparent;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn:hover, .btn-outline:hover {
+  background: #f5f5f5;
+  border-color: #bbb;
+}
+
+.btn .arrow, .btn-outline .arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Link ── */
+.text-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.15s;
+}
+
+.text-link:hover { opacity: 0.7; }
+
+/* ── About page bento grid ── */
+.about-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 32px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-identity img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+}
+
+.about-identity-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.about-identity-role {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.about-heading {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.about-heading-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 0 0 0;
+}
+
+.about-section {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-section:last-child { border-bottom: none; }
+
+.about-section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #555;
+}
+
+/* ── Spotify card ── */
+.spotify-card { padding: 22px; }
+
+.spotify-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.spotify-listening-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.spotify-art-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+  position: relative;
+}
+
+.spotify-art-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+}
+
+.spotify-art-album {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.spotify-art-band {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 3px;
+}
+
+.spotify-track {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.spotify-artist {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── Gallery card ── */
+.gallery-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.gallery-slide.active { opacity: 1; }
+
+/* ── Work page ── */
+.work-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 32px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.work-project-card {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-project-header {
+  padding: 28px 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.work-project-meta { flex: 1; }
+
+.work-project-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.work-project-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.work-project-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.work-project-arrow:hover { background: #e8e8e8; }
+
+.work-project-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+.work-project-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  max-height: 380px;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 20px 24px 40px;
+  font-size: 13px;
+  color: var(--subtle);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer a {
+  color: var(--subtle);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+footer a:hover { color: var(--text); }
