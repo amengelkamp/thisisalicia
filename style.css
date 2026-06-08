@@ -475,6 +475,284 @@ main {
   max-height: 380px;
 }
 
+/* ── Case study page ── */
+.case-layout {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: -40px;
+  transition: color 0.15s;
+}
+
+.case-back:hover { color: var(--text); }
+
+.case-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.case-heading {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.case-body {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+}
+
+.case-body + .case-body { margin-top: 14px; }
+
+/* Hero */
+.case-hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.case-hero-sub {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+/* Before / After */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ba-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.ba-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 14px;
+}
+
+.txn-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.txn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf88;
+  flex-shrink: 0;
+}
+
+.txn-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.txn-payee {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.txn-memo {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.txn-memo.raw { color: var(--subtle); font-style: italic; }
+.txn-memo.enriched { color: #b85c00; font-weight: 500; }
+
+.txn-amount {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+/* Stats */
+.stats-row {
+  display: flex;
+  gap: 32px;
+  margin: 20px 0;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Quote */
+.quote-block {
+  border-left: 3px solid var(--accent);
+  padding: 2px 0 2px 20px;
+  margin: 24px 0;
+}
+
+.quote-block p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.quote-source {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: normal;
+}
+
+/* Mockup embed */
+.mockup-embed {
+  width: 100%;
+  height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.mockup-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Annotated screens */
+.screen-item { margin-bottom: 36px; }
+.screen-item:last-child { margin-bottom: 0; }
+
+.screen-item img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.screen-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.screen-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.screen-desc {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.65;
+}
+
+/* Numbered list */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.item-list-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.item-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 18px;
+  padding-top: 2px;
+}
+
+.item-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.item-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* CTA card */
+.case-cta {
+  text-align: center;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 48px 32px;
+}
+
+.case-cta h2 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.case-cta p {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
 /* ── Footer ── */
 footer {
   text-align: center;
