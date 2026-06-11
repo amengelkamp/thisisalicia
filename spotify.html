@@ -48,168 +48,110 @@
 
     <!-- 1. Hook -->
     <div>
-      <p class="case-section-label">Case Study · Spotify</p>
-      <h1 class="case-hero-title">Your most-played artists are touring. Spotify doesn't tell you.</h1>
-      <p class="case-hero-sub">A product feature proposal and interactive prototype — from problem discovery to a fully clickable mobile mockup.</p>
+      <p class="case-section-label">Product Teardown · Spotify</p>
+      <h1 class="case-hero-title">Spotify built concert discovery. Here's what I'd change.</h1>
+      <p class="case-hero-sub">An analysis of what they shipped, where the product logic runs out, and an interactive prototype exploring the gaps.</p>
+    </div>
 
-      <div class="before-after">
-        <div>
-          <p class="ba-label">Today</p>
-          <div class="ba-card" style="display:flex;flex-direction:column;gap:0;padding:22px 20px 26px;">
 
-            <!-- user intent -->
-            <div style="background:#f7f7f7;border-radius:12px;padding:10px 13px;margin-bottom:14px;">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">You</div>
-              <div style="font-size:12px;color:#555;line-height:1.5;font-style:italic;">"I want to see live music — which of my favorite artists are touring near me?"</div>
-            </div>
+    <!-- 1b. Timeline -->
+    <div>
+      <p class="case-section-label">Previously on Spotify Concerts</p>
+      <h2 class="case-heading">Four years of iteration.</h2>
 
-            <!-- step 1: left -->
-            <div>
-              <span style="background:#f0f0f0;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#444;display:inline-block;">Open artist page</span>
-            </div>
+      <div style="margin-top:28px;position:relative;padding-left:28px;">
+        <!-- vertical line -->
+        <div style="position:absolute;left:7px;top:6px;bottom:6px;width:1.5px;background:#e0e0e0;"></div>
 
-            <!-- quarter-circle arrow: curves down from left, arrives right -->
-            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
-              <defs>
-                <marker id="ar1" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
-                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
-                </marker>
-              </defs>
-              <path d="M 18,4 C 18,34 176,34 178,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar1)"/>
-            </svg>
-
-            <!-- step 2: right -->
-            <div style="display:flex;justify-content:flex-end;">
-              <span style="background:#fdf2f1;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#d94f3d;display:inline-block;">No tour dates</span>
-            </div>
-
-            <!-- quarter-circle arrow: curves down from right, arrives left -->
-            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
-              <defs>
-                <marker id="ar2" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
-                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
-                </marker>
-              </defs>
-              <path d="M 182,4 C 182,34 24,34 22,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar2)"/>
-            </svg>
-
-            <!-- step 3: left -->
-            <div>
-              <span style="background:#f0f0f0;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#444;display:inline-block;">Open next artist</span>
-            </div>
-
-            <!-- quarter-circle arrow right -->
-            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
-              <defs>
-                <marker id="ar3" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
-                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
-                </marker>
-              </defs>
-              <path d="M 18,4 C 18,34 176,34 178,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar3)"/>
-            </svg>
-
-            <!-- step 4: right -->
-            <div style="display:flex;justify-content:flex-end;">
-              <span style="background:#fdf2f1;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#d94f3d;display:inline-block;">Sold out ✕</span>
-            </div>
-
-            <!-- quarter-circle arrow left -->
-            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
-              <defs>
-                <marker id="ar4" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
-                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
-                </marker>
-              </defs>
-              <path d="M 182,4 C 182,34 24,34 22,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar4)"/>
-            </svg>
-
-            <!-- step 5: left (faded, loop implied) -->
-            <div>
-              <span style="background:#f7f7f7;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#bbb;display:inline-block;">Open next artist…</span>
-            </div>
-
-          </div>
+        <!-- 2022 -->
+        <div style="position:relative;margin-bottom:32px;">
+          <div style="position:absolute;left:-28px;top:4px;width:15px;height:15px;border-radius:50%;background:#1a1a1a;border:2px solid #fff;box-shadow:0 0 0 1.5px #1a1a1a;"></div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">June 2022</p>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Live Events Feed</p>
+          <p class="case-body" style="margin:0;">Replaces the old Concert Hub. Personalized recommendations based on listening history and location. Accessible via home screen and search. Single large featured card per artist. Partners: Ticketmaster, AXS, DICE, Eventbrite, See Tickets.</p>
         </div>
-        <div>
-          <p class="ba-label">With this feature</p>
-          <div class="ba-card" style="background:#121212;padding:22px 20px 26px;display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;">
-              <div>
-                <div style="font-size:14px;font-weight:700;color:#fff;line-height:1;">Concerts Near You</div>
-                <div style="font-size:10px;color:#b3b3b3;margin-top:3px;">Based on your most-played artists · 150 km</div>
-              </div>
-              <span style="font-size:10px;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:.04em;">SEE ALL</span>
-            </div>
-            <div style="display:flex;gap:10px;">
-              <div style="background:#1a1a1a;border-radius:8px;overflow:hidden;flex:1;display:flex;flex-direction:column;">
-                <div style="width:100%;aspect-ratio:1;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Remi_Wolf_in_2024.png/250px-Remi_Wolf_in_2024.png');background-size:cover;background-position:center top;background-color:#1a3a1a;"></div>
-                <div style="padding:8px 8px 10px;display:flex;flex-direction:column;gap:2px;">
-                  <div style="font-size:11px;font-weight:700;color:#fff;">Remi Wolf</div>
-                  <div style="font-size:10px;color:#b3b3b3;">Palladium, Cologne</div>
-                  <div style="font-size:10px;color:#b3b3b3;">Jun 14, 2026</div>
-                </div>
-              </div>
-              <div style="background:#1a1a1a;border-radius:8px;overflow:hidden;flex:1;display:flex;flex-direction:column;position:relative;">
-                <div style="width:100%;aspect-ratio:1;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BoygeniusKingstonEarly240823_%2829_of_45%29_%2853138924957%29_Cropped.jpg/250px-BoygeniusKingstonEarly240823_%2829_of_45%29_%2853138924957%29_Cropped.jpg');background-size:cover;background-position:center top;background-color:#3a1a4a;"></div>
-                <div style="position:absolute;top:7px;left:7px;background:#1DB954;color:#000;font-size:7.5px;font-weight:800;letter-spacing:.06em;padding:3px 5px;border-radius:3px;">ONLY EUROPEAN SHOW</div>
-                <div style="padding:8px 8px 10px;display:flex;flex-direction:column;gap:2px;">
-                  <div style="font-size:11px;font-weight:700;color:#fff;">Phoebe Bridgers</div>
-                  <div style="font-size:10px;color:#b3b3b3;">Tempodrom, Berlin</div>
-                  <div style="font-size:10px;color:#b3b3b3;">Jul 2, 2026</div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        <!-- 2023 -->
+        <div style="position:relative;margin-bottom:32px;">
+          <div style="position:absolute;left:-28px;top:4px;width:15px;height:15px;border-radius:50%;background:#1a1a1a;border:2px solid #fff;box-shadow:0 0 0 1.5px #1a1a1a;"></div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">March 2023 · Stream On</p>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Now Playing integration + Fans First</p>
+          <p class="case-body" style="margin:0;">Concert info surfaces in the Now Playing view while you're listening to an artist — the closest thing to catching you at the right moment. Adds an "Interested" button to build a personal gig calendar. Fans First gives top listeners early pre-sale access. Spotify's own stat: <em>"Over half of our listeners are unaware of when their favorite artists are in town."</em></p>
         </div>
+
+        <!-- Mar 2025 -->
+        <div style="position:relative;margin-bottom:32px;">
+          <div style="position:absolute;left:-28px;top:4px;width:15px;height:15px;border-radius:50%;background:#1a1a1a;border:2px solid #fff;box-shadow:0 0 0 1.5px #1a1a1a;"></div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">March 2025</p>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Concerts Near You playlist</p>
+          <p class="case-body" style="margin:0;">A personalized playlist — 30 songs from artists playing nearby — refreshed every Wednesday. Expandable tracks show event details and ticket links. Accessible by searching "concerts." Over 3 million users in its first months.</p>
+        </div>
+
+        <!-- Oct 2025 -->
+        <div style="position:relative;margin-bottom:32px;">
+          <div style="position:absolute;left:-28px;top:4px;width:15px;height:15px;border-radius:50%;background:#1a1a1a;border:2px solid #fff;box-shadow:0 0 0 1.5px #1a1a1a;"></div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">October 2025</p>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Venue following + daily feed</p>
+          <p class="case-body" style="margin:0;">Follow specific venues, saved to your Library. Live Events feed now refreshes daily instead of weekly. 20,000+ venues worldwide. Available to free and premium users globally.</p>
+        </div>
+
+        <!-- May 2026 -->
+        <div style="position:relative;">
+          <div style="position:absolute;left:-28px;top:4px;width:15px;height:15px;border-radius:50%;background:#17a349;border:2px solid #fff;box-shadow:0 0 0 1.5px #17a349;"></div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">May 2026 · Now</p>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">"Reserved" — ticket access for superfans</p>
+          <p class="case-body" style="margin:0;">Spotify identifies superfans via streaming volume, playlist activity, and proximity — then reserves 2 tickets before general sale, with a 24-hour purchase window. US Premium, Live Nation partnership, rolling out globally. The first time Spotify uses listening depth not just to surface shows, but to unlock access to them.</p>
+        </div>
+
       </div>
     </div>
 
-    <!-- 2. Problem -->
+    <!-- 2. What They Built -->
     <div>
-      <p class="case-section-label">Problem</p>
-      <h2 class="case-heading">Spotify has all the data. It just doesn't connect the dots.</h2>
+      <p class="case-section-label">What They Built</p>
+      <h2 class="case-heading">Spotify's version is good. Its most powerful surface isn't consistently deployed.</h2>
 
-      <p class="case-body">Spotify knows your listening history with extraordinary precision — every artist, every play, every hour. It also has concert data: a dedicated page per artist, populated with tour dates and ticket links.</p>
-      <p class="case-body">But the two are never combined. There is no surface that says: "These artists you listen to constantly are playing near you next month." The data to make that personal is all there — it's a product prioritisation gap, not a technical one.</p>
-      <p class="case-body">The result: users who would happily attend concerts miss them entirely. Not because they didn't care, but because manually checking artist pages for tour dates — for every artist you follow — is friction nobody bothers with.</p>
+      <p class="case-body"><a href="https://newsroom.spotify.com/2022-06-23/find-shows-tailored-to-you-right-in-the-spotify-app/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Spotify launched live event discovery in 2022</a> and has kept building it. Today, <code style="font-family:monospace;font-size:13px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">open.spotify.com/concerts</code> is a genuinely solid product: personalised recommendations ranked by listening history, radius filtering, date and genre filters, a horizontal scroll row of artist cards. The core insight — your listening data is the best possible signal for concert relevance — is right, and they executed it.</p>
+      <p class="case-body">Calling this a purely pull product is no longer accurate. Spotify surfaces shows in the Now Playing view while you're listening, pushes the Concerts Near You playlist to your library every Wednesday, and with Reserved, proactively holds tickets for identified superfans. The push mechanisms exist. The specific gap is the home screen row: Now Playing catches you mid-session, a moment of music focus rather than purchase intent. The playlist requires you to discover it first. The home screen row catches you at any moment, unprompted. That surface existed in 2022. It isn't consistently shown today, at least not outside the US.</p>
+      <p class="case-body">Three things the current product leaves open. The radius filter is a hard cutoff with no documented exception logic — an artist in your top five playing their only European date 600 km away gets silently excluded the same way a band you've never heard of would. Sold-out handling isn't documented anywhere: whether Spotify shows sold-out events with a badge (still useful signal — tells you the artist has demand near you) or removes them entirely, I couldn't confirm. Festival deduplication isn't documented either: a festival with four of your top artists could plausibly appear four times as separate cards, or once — I couldn't find evidence either way.</p>
 
       <div class="stats-row">
         <div>
-          <p class="stat-number">0</p>
-          <p class="stat-label">personalised concert surfaces on Spotify's home screen</p>
+          <p class="stat-number">4yr</p>
+          <p class="stat-label">of continuous iteration — 2022 launch to "Reserved" in 2026</p>
         </div>
         <div>
-          <p class="stat-number">9+</p>
-          <p class="stat-label">manual artist pages to check for a typical active listener</p>
+          <p class="stat-number">3M+</p>
+          <p class="stat-label">users of the Concerts Near You playlist in its first months</p>
         </div>
       </div>
     </div>
 
-    <!-- 3. Solution -->
+    <!-- 3. What I'd Change -->
     <div>
-      <p class="case-section-label">Solution</p>
-      <h2 class="case-heading">Three design principles guided every decision.</h2>
+      <p class="case-section-label">What I'd Change</p>
+      <h2 class="case-heading">Three bets worth making differently.</h2>
 
       <div class="item-list">
         <div class="item-list-item">
           <span class="item-num">01</span>
           <div>
-            <p class="item-title">Listening signal as the filter, not genre or location alone</p>
-            <p class="item-desc">Concerts are ranked by total listening time over the last 12 months — not all-time (one obsessive week skews it) and not raw play count (too noisy). 12 months balances recency with stability. The ranking is the personalisation; the radius just sets the geography.</p>
+            <p class="item-title">Make the home screen row the primary surface, not a deprecated one</p>
+            <p class="item-desc">Spotify already pushes concerts through Now Playing and the weekly playlist. But Now Playing catches you mid-listen, not mid-decision. The home screen row is different: it reaches you at any moment, in any context, without requiring you to be actively playing the artist. The person who has no idea Remi Wolf is playing Cologne next month will never check the playlist — the row finds them. It existed in 2022. Making it consistently deployed and the default surface, not a secondary one, is the highest-leverage change.</p>
           </div>
         </div>
         <div class="item-list-item">
           <span class="item-num">02</span>
           <div>
-            <p class="item-title">A row, not a tab — placement earns its position</p>
-            <p class="item-desc">Concerts live as a horizontal scroll row on the home screen, below personalised content. Not a top-level tab — that pattern is reserved for content-type filters (Musik, Podcasts), not discovery destinations. The row only renders when there's at least one match. It disappears silently if there's nothing to show.</p>
+            <p class="item-title">Earn the notification opt-in — don't bury it in settings</p>
+            <p class="item-desc">The right moment to ask for notification permission isn't at app setup or in a generic prompt — it's the first time the concerts row appears on screen. The user has just seen that Spotify knows about a show they might want to attend. That's the only moment where "yes, tell me about this" is an obvious answer. Ask earlier and you're requesting trust before you've demonstrated value. Two steps: Spotify asks, then the OS confirms.</p>
           </div>
         </div>
         <div class="item-list-item">
           <span class="item-num">03</span>
           <div>
-            <p class="item-title">Earn the notification opt-in at the highest-intent moment</p>
-            <p class="item-desc">The notification prompt appears the first time the concerts row appears on screen — not on first app launch, not buried in settings. That's the moment the user has just experienced the value. It's the only moment where "yes, tell me about this" is an obvious answer.</p>
+            <p class="item-title">The radius is a blunt instrument — add logic for the shows worth traveling for</p>
+            <p class="item-desc">A hard radius cutoff hides a show you'd actually travel for. If an artist is in your top 5 by listening time and has three or fewer European dates, show it regardless of radius — labelled "Only European Show" so the system never expands range without telling you. There's no documented equivalent in Spotify's product for discovery — though Reserved (May 2026) applies the same listening-depth signal one step later: not to surface the show, but to reserve you a ticket once it's announced. The exception rule is the same idea applied earlier in the journey.</p>
           </div>
         </div>
       </div>
@@ -217,9 +159,9 @@
 
     <!-- 4. Mockup -->
     <div>
-      <p class="case-section-label">The Mockup</p>
-      <h2 class="case-heading">Try it yourself.</h2>
-      <p class="case-body" style="margin-bottom: 20px;">An interactive prototype built in plain HTML and CSS — no framework. The prototype is modelled on Spotify's German locale (Spotify DE). Click through the full flow: watch the concerts row animate in, adjust the radius, explore the "Only European Show" exception, and open a festival detail page.</p>
+      <p class="case-section-label">The Prototype</p>
+      <h2 class="case-heading">Try the alternative.</h2>
+      <p class="case-body" style="margin-bottom: 20px;">An interactive prototype built in plain HTML and CSS — no framework, modelled on Spotify's German locale. Watch the home screen concerts row animate in, adjust the radius filter, see the "Only European Show" exception trigger at 150 km, tap into a festival detail page, and go through the two-step notification opt-in.</p>
 
       <div class="mockup-embed" style="height:900px;">
         <iframe src="../spotifyConcertsFeature/index.html" title="Spotify Concerts Feature Mockup"></iframe>
@@ -228,15 +170,15 @@
 
     <!-- 5. Key Decisions -->
     <div>
-      <p class="case-section-label">Key Decisions</p>
-      <h2 class="case-heading">Five choices worth explaining.</h2>
+      <p class="case-section-label">Design Decisions</p>
+      <h2 class="case-heading">Five places where this prototype diverges from Spotify's version.</h2>
 
       <div class="item-list">
         <div class="item-list-item">
           <span class="item-num">1</span>
           <div>
-            <p class="item-title">12 months, not all-time listening</p>
-            <p class="item-desc">All-time totals are dominated by whatever you were obsessed with years ago. 12 months captures real current taste while smoothing out single-week spikes. It's the same window Spotify uses for Wrapped — which means the ranking is already familiar to users even if they can't name the logic.</p>
+            <p class="item-title">Medium-term listening, not all-time</p>
+            <p class="item-desc">All-time totals are dominated by whatever you were obsessed with years ago. But too short a window and one obsessive week skews the whole ranking. Spotify's API offers three ranges: roughly 4 weeks, 6 months, and all-time. Six months hits the right balance — recent enough to reflect who you're actually listening to now, stable enough to filter out spikes. It's also what the API directly supports, so there's no approximation needed.</p>
           </div>
         </div>
         <div class="item-list-item">
@@ -274,7 +216,7 @@
     <div>
       <p class="case-section-label">Technical Approach</p>
       <h2 class="case-heading">Two APIs, one meaningful combination.</h2>
-      <p class="case-body">The listening signal comes from Spotify's Web API — specifically <code style="font-family:monospace;font-size:14px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">/me/top/artists</code> with <code style="font-family:monospace;font-size:14px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">time_range=medium_term</code> (approximately 6 months, the closest available window to the 12-month target). Concert data comes from the Ticketmaster Discovery API or Bandsintown — Spotify's concert data is not exposed in their public API.</p>
+      <p class="case-body">The listening signal comes from Spotify's Web API — specifically <code style="font-family:monospace;font-size:14px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">/me/top/artists</code> with <code style="font-family:monospace;font-size:14px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">time_range=medium_term</code> (approximately 6 months — recent enough to reflect current taste, stable enough to smooth out single-week spikes). Concert data comes from the Ticketmaster Discovery API or Bandsintown — Spotify's concert data is not exposed in their public API.</p>
       <p class="case-body">The matching logic is straightforward: fetch the user's top 50 artists, call the concert API for each, filter by radius, sort by date with listening rank as a tiebreaker. The "Only European Show" exception runs as a post-filter pass on the top-5 artists.</p>
       <p class="case-body" style="margin-top:14px;color:#888;font-size:14px;">Note: Spotify has been progressively restricting public API access since 2024. Verify current endpoint availability before building — the endpoints referenced here were available at time of writing but the landscape is shifting.</p>
     </div>
@@ -296,14 +238,14 @@
           <span class="item-num">2</span>
           <div>
             <p class="item-title">Notification opt-in rate</p>
-            <p class="item-desc">% of users who see the prompt and tap "Ja, benachrichtigen." Placed at the highest-intent moment — this number sets the ceiling for how many users benefit from the follow-on notification system. Target: above 40%.</p>
+            <p class="item-desc">% of users who see the prompt and tap "Yes, notify me." Placed at the highest-intent moment — this number sets the ceiling for how many users benefit from the follow-on notification system. Target: above 40%.</p>
           </div>
         </div>
         <div class="item-list-item">
           <span class="item-num">3</span>
           <div>
             <p class="item-title">Ticketmaster redirect rate</p>
-            <p class="item-desc">% of detail page views that result in a tap on "Tickets kaufen." This measures whether the detail page earns the redirect. Low rate = the page isn't convincing enough or the user decided against it after seeing price/distance.</p>
+            <p class="item-desc">% of detail page views that result in a tap on "Buy tickets." This measures whether the detail page earns the redirect. Low rate = the page isn't convincing enough or the user decided against it after seeing price/distance.</p>
           </div>
         </div>
         <div class="item-list-item">
@@ -327,7 +269,7 @@
           <span class="item-num">→</span>
           <div>
             <p class="item-title">Post-show setlist replay</p>
-            <p class="item-desc">If the user attended a show (inferred from location + ticket purchase signal), surface a playlist of what the artist actually played that night. The fandom spike is highest in the 24 hours after a show — that's the moment to deepen the relationship, not a week later.</p>
+            <p class="item-desc">If the user attended a show (inferred from location data, or from a Ticketmaster data-sharing agreement), surface a playlist of what the artist actually played that night. The fandom spike is highest in the 24 hours after a show — that's the moment to deepen the relationship, not a week later.</p>
           </div>
         </div>
         <div class="item-list-item">
@@ -349,8 +291,8 @@
 
     <!-- CTA -->
     <div class="case-cta">
-      <h2>Want to build something like this?</h2>
-      <p>I find the problem, design the solution, and ship it.</p>
+      <h2>Want someone who thinks this way on your team?</h2>
+      <p>I find the gaps, form an opinion, and build something to prove it.</p>
       <a href="contact.html" class="btn">Get in touch <svg class="arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
 
