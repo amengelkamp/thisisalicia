@@ -9,10 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Spotify green overrides for this page */
-    .case-section-label { color: #1DB954; }
-    .item-num           { color: #1DB954; }
-    .work-dot           { background: #1DB954; }
+    /* Spotify green + bolder typography for this page */
+    .case-section-label {
+      color: #17a349;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+    .item-num {
+      color: #17a349;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .work-dot           { background: #17a349; }
+    .case-hero-title    { font-weight: 800; }
+    .case-heading       { font-weight: 800; }
+    .item-title         { font-weight: 700; font-size: 15px; }
+    .before-after > div { display: flex; flex-direction: column; }
+    .before-after > div > .ba-card { flex: 1; min-height: 0; }
   </style>
 </head>
 <body>
@@ -41,16 +55,110 @@
       <div class="before-after">
         <div>
           <p class="ba-label">Today</p>
-          <div class="ba-card" style="display:flex;flex-direction:column;gap:10px;">
-            <div style="font-size:13px;color:#888;font-style:italic;line-height:1.5;">Check artist page. No dates. Check another. One show — sold out. Check another…</div>
-            <div style="font-size:12px;color:#aaa;">Repeated manually for every artist you follow.</div>
+          <div class="ba-card" style="display:flex;flex-direction:column;gap:0;padding:22px 20px 26px;">
+
+            <!-- user intent -->
+            <div style="background:#f7f7f7;border-radius:12px;padding:10px 13px;margin-bottom:14px;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:#aaa;text-transform:uppercase;margin-bottom:4px;">You</div>
+              <div style="font-size:12px;color:#555;line-height:1.5;font-style:italic;">"I want to see live music — which of my favorite artists are touring near me?"</div>
+            </div>
+
+            <!-- step 1: left -->
+            <div>
+              <span style="background:#f0f0f0;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#444;display:inline-block;">Open artist page</span>
+            </div>
+
+            <!-- quarter-circle arrow: curves down from left, arrives right -->
+            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
+              <defs>
+                <marker id="ar1" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
+                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
+                </marker>
+              </defs>
+              <path d="M 18,4 C 18,34 176,34 178,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar1)"/>
+            </svg>
+
+            <!-- step 2: right -->
+            <div style="display:flex;justify-content:flex-end;">
+              <span style="background:#fdf2f1;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#d94f3d;display:inline-block;">No tour dates</span>
+            </div>
+
+            <!-- quarter-circle arrow: curves down from right, arrives left -->
+            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
+              <defs>
+                <marker id="ar2" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
+                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
+                </marker>
+              </defs>
+              <path d="M 182,4 C 182,34 24,34 22,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar2)"/>
+            </svg>
+
+            <!-- step 3: left -->
+            <div>
+              <span style="background:#f0f0f0;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#444;display:inline-block;">Open next artist</span>
+            </div>
+
+            <!-- quarter-circle arrow right -->
+            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
+              <defs>
+                <marker id="ar3" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
+                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
+                </marker>
+              </defs>
+              <path d="M 18,4 C 18,34 176,34 178,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar3)"/>
+            </svg>
+
+            <!-- step 4: right -->
+            <div style="display:flex;justify-content:flex-end;">
+              <span style="background:#fdf2f1;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#d94f3d;display:inline-block;">Sold out ✕</span>
+            </div>
+
+            <!-- quarter-circle arrow left -->
+            <svg viewBox="0 0 200 38" style="width:100%;height:auto;display:block;">
+              <defs>
+                <marker id="ar4" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" markerUnits="userSpaceOnUse">
+                  <polygon points="0 0, 6 2, 0 4" fill="#bbb"/>
+                </marker>
+              </defs>
+              <path d="M 182,4 C 182,34 24,34 22,34" stroke="#bbb" stroke-width="1.5" fill="none" marker-end="url(#ar4)"/>
+            </svg>
+
+            <!-- step 5: left (faded, loop implied) -->
+            <div>
+              <span style="background:#f7f7f7;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:#bbb;display:inline-block;">Open next artist…</span>
+            </div>
+
           </div>
         </div>
         <div>
           <p class="ba-label">With this feature</p>
-          <div class="ba-card" style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:#1DB954;color:#000;border-radius:6px;padding:10px 12px;font-size:13px;font-weight:700;font-family:monospace;">Konzerte in deiner Nähe</div>
-            <div style="font-size:12px;color:#555;line-height:1.5;">Personalised concert row, home screen, zero manual effort.</div>
+          <div class="ba-card" style="background:#121212;padding:22px 20px 26px;display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;">
+              <div>
+                <div style="font-size:14px;font-weight:700;color:#fff;line-height:1;">Concerts Near You</div>
+                <div style="font-size:10px;color:#b3b3b3;margin-top:3px;">Based on your most-played artists · 150 km</div>
+              </div>
+              <span style="font-size:10px;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:.04em;">SEE ALL</span>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <div style="background:#1a1a1a;border-radius:8px;overflow:hidden;flex:1;display:flex;flex-direction:column;">
+                <div style="width:100%;aspect-ratio:1;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Remi_Wolf_in_2024.png/250px-Remi_Wolf_in_2024.png');background-size:cover;background-position:center top;background-color:#1a3a1a;"></div>
+                <div style="padding:8px 8px 10px;display:flex;flex-direction:column;gap:2px;">
+                  <div style="font-size:11px;font-weight:700;color:#fff;">Remi Wolf</div>
+                  <div style="font-size:10px;color:#b3b3b3;">Palladium, Cologne</div>
+                  <div style="font-size:10px;color:#b3b3b3;">Jun 14, 2026</div>
+                </div>
+              </div>
+              <div style="background:#1a1a1a;border-radius:8px;overflow:hidden;flex:1;display:flex;flex-direction:column;position:relative;">
+                <div style="width:100%;aspect-ratio:1;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BoygeniusKingstonEarly240823_%2829_of_45%29_%2853138924957%29_Cropped.jpg/250px-BoygeniusKingstonEarly240823_%2829_of_45%29_%2853138924957%29_Cropped.jpg');background-size:cover;background-position:center top;background-color:#3a1a4a;"></div>
+                <div style="position:absolute;top:7px;left:7px;background:#1DB954;color:#000;font-size:7.5px;font-weight:800;letter-spacing:.06em;padding:3px 5px;border-radius:3px;">ONLY EUROPEAN SHOW</div>
+                <div style="padding:8px 8px 10px;display:flex;flex-direction:column;gap:2px;">
+                  <div style="font-size:11px;font-weight:700;color:#fff;">Phoebe Bridgers</div>
+                  <div style="font-size:10px;color:#b3b3b3;">Tempodrom, Berlin</div>
+                  <div style="font-size:10px;color:#b3b3b3;">Jul 2, 2026</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -111,7 +219,7 @@
     <div>
       <p class="case-section-label">The Mockup</p>
       <h2 class="case-heading">Try it yourself.</h2>
-      <p class="case-body" style="margin-bottom: 20px;">An interactive prototype built in plain HTML and CSS — no framework. The prototype is modelled on Spotify's German locale (Spotify DE). Click through the full flow: watch the concerts row animate in, adjust the radius, explore the Europa-Show exception, and open a festival detail page.</p>
+      <p class="case-body" style="margin-bottom: 20px;">An interactive prototype built in plain HTML and CSS — no framework. The prototype is modelled on Spotify's German locale (Spotify DE). Click through the full flow: watch the concerts row animate in, adjust the radius, explore the "Only European Show" exception, and open a festival detail page.</p>
 
       <div class="mockup-embed" style="height:900px;">
         <iframe src="../spotifyConcertsFeature/index.html" title="Spotify Concerts Feature Mockup"></iframe>
@@ -134,8 +242,8 @@
         <div class="item-list-item">
           <span class="item-num">2</span>
           <div>
-            <p class="item-title">The "Einzige Europa-Show" exception rule</p>
-            <p class="item-desc">If an artist is in the user's top 5 by listening time and has three or fewer European tour dates, show the concert regardless of radius. A user who listens to Phoebe Bridgers for 200 hours a year would probably travel to Berlin for her only European show — the radius shouldn't silently hide that. The label "Einzige Europa-Show" does the persuasion work; the system never expands radius without telling you.</p>
+            <p class="item-title">The "Only European Show" exception rule</p>
+            <p class="item-desc">If an artist is in the user's top 5 by listening time and has three or fewer European tour dates, show the concert regardless of radius. A user who listens to Phoebe Bridgers for 200 hours a year would probably travel to Berlin for her only European show — the radius shouldn't silently hide that. The label "Only European Show" does the persuasion work; the system never expands radius without telling you.</p>
           </div>
         </div>
         <div class="item-list-item">
@@ -167,7 +275,7 @@
       <p class="case-section-label">Technical Approach</p>
       <h2 class="case-heading">Two APIs, one meaningful combination.</h2>
       <p class="case-body">The listening signal comes from Spotify's Web API — specifically <code style="font-family:monospace;font-size:14px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">/me/top/artists</code> with <code style="font-family:monospace;font-size:14px;background:#f2f2f2;padding:1px 5px;border-radius:3px;">time_range=medium_term</code> (approximately 6 months, the closest available window to the 12-month target). Concert data comes from the Ticketmaster Discovery API or Bandsintown — Spotify's concert data is not exposed in their public API.</p>
-      <p class="case-body">The matching logic is straightforward: fetch the user's top 50 artists, call the concert API for each, filter by radius, sort by date with listening rank as a tiebreaker. The Europa-Show exception runs as a post-filter pass on the top-5 artists.</p>
+      <p class="case-body">The matching logic is straightforward: fetch the user's top 50 artists, call the concert API for each, filter by radius, sort by date with listening rank as a tiebreaker. The "Only European Show" exception runs as a post-filter pass on the top-5 artists.</p>
       <p class="case-body" style="margin-top:14px;color:#888;font-size:14px;">Note: Spotify has been progressively restricting public API access since 2024. Verify current endpoint availability before building — the endpoints referenced here were available at time of writing but the landscape is shifting.</p>
     </div>
 

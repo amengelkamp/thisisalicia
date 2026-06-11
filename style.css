@@ -780,3 +780,8 @@ footer a {
 }
 
 footer a:hover { color: var(--text); }
+
+/* ── Wider layouts (30% increase from original) ── */
+:root { --max: 860px; }
+.case-layout { max-width: 940px; }
+.work-layout { max-width: 1200px; }
