@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZooRoyal Checkout Audit — Alicia Mengelkamp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .case-section-label { color: #e07b00; }
+    .item-num           { color: #e07b00; font-weight: 800; }
+    .work-dot           { background: #e07b00; }
+    .case-hero-title    { font-weight: 800; }
+    .case-heading       { font-weight: 800; }
+
+    /* Finding layout: video left, mockup right */
+    .finding-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    @media (max-width: 640px) {
+      .finding-split { grid-template-columns: 1fr; }
+    }
+
+    .finding-side-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .finding-side-label.current  { color: #e07b00; }
+    .finding-side-label.improved { color: #17a349; }
+
+    /* Video card */
+    .finding-video-wrap {
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      position: relative;
+    }
+    .finding-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Improved mockup card */
+    .finding-mockup-card {
+      background: #f8f8f6;
+      border: 1.5px solid #1a1a1a;
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
+    }
+
+    .finding-mockup-card .mockup-change {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.35;
+    }
+
+    .finding-mockup-card .mockup-detail {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .finding-mockup-card .mockup-metric {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #17a349;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 12px;
+    }
+
+    /* Baymard benchmark callout */
+    .benchmark {
+      border-left: 3px solid #e07b00;
+      padding: 2px 0 2px 18px;
+      margin-top: 20px;
+    }
+    .benchmark p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* Funnel strip */
+    .funnel-strip {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 20px 0 8px;
+    }
+    .funnel-node {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: #f2f2f2;
+      color: #555;
+      white-space: nowrap;
+    }
+    .funnel-node.highlighted {
+      background: #fff3e0;
+      color: #e07b00;
+      font-weight: 700;
+    }
+    .funnel-arrow { color: #bbb; font-size: 1rem; }
+
+    /* Priority grid */
+    .priority-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (max-width: 540px) {
+      .priority-grid { grid-template-columns: 1fr; }
+    }
+    .priority-card {
+      background: #f2f2f2;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .priority-card .p-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e07b00;
+      margin-bottom: 6px;
+    }
+    .priority-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+    .priority-card p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .priority-card .p-effort {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-fixed">
+    <div class="nav-pill">
+      <a href="index.html">About</a>
+      <a href="work.html" class="active"><span class="work-dot"></span>Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="case-layout">
+
+    <a href="work.html" class="case-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Work
+    </a>
+
+    <!-- 1. Hook -->
+    <div>
+      <p class="case-section-label">Case Study · ZooRoyal E-Commerce</p>
+      <h1 class="case-hero-title">I own payment processing at an&nbsp;e-commerce company. When I walked ZooRoyal's checkout, I counted three moments where I would have lost a&nbsp;user.</h1>
+      <p class="case-hero-sub">A product owner's audit of the add-to-cart → payment funnel. No internal data. Three public signals. One prioritised roadmap.</p>
+    </div>
+
+    <!-- 2. Why my read is different -->
+    <div>
+      <p class="case-section-label">Context</p>
+      <h2 class="case-heading">Why this read is different.</h2>
+      <p class="case-body">I'm a PO at flaschenpost — Germany's largest on-demand beverage delivery service. My domain is invoice creation and payment processing: the layer that sits directly behind a checkout button. That means when I audit a checkout funnel, I'm not just evaluating what a user sees — I'm evaluating what each friction point costs at the layer I own.</p>
+      <p class="case-body">This is a public-facing audit. I triangulated findings from three sources:</p>
+
+      <div class="item-list" style="margin-top: 20px;">
+        <div class="item-list-item">
+          <span class="item-num">01</span>
+          <div>
+            <p class="item-title">Baymard Institute benchmarks</p>
+            <p class="item-desc">Industry research on checkout UX and cart abandonment — the credibility anchor when internal data isn't available.</p>
+          </div>
+        </div>
+        <div class="item-list-item">
+          <span class="item-num">02</span>
+          <div>
+            <p class="item-title">Playwright browser walkthrough</p>
+            <p class="item-desc">Automated end-to-end journey through the live shop — homepage to checkout — with video capture at each step.</p>
+          </div>
+        </div>
+        <div class="item-list-item">
+          <span class="item-num">03</span>
+          <div>
+            <p class="item-title">Direct user observation</p>
+            <p class="item-desc">Walking through the shop as a first-time customer and annotating friction points, cognitive load, and dead-ends.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Funnel scope -->
+    <div>
+      <p class="case-section-label">Scope</p>
+      <h2 class="case-heading">The funnel I audited.</h2>
+      <p class="case-body">The shop <em>feels</em> fine — which is exactly why it's dangerous. Invisible friction doesn't register to a casual user. It only shows up in funnel drop-off data. All three findings sit in the highest-impact zone for conversion.</p>
+
+      <div class="funnel-strip">
+        <span class="funnel-node">Homepage</span>
+        <span class="funnel-arrow">→</span>
+        <span class="funnel-node">Category</span>
+        <span class="funnel-arrow">→</span>
+        <span class="funnel-node">Product listing</span>
+        <span class="funnel-arrow">→</span>
+        <span class="funnel-node highlighted">Add to cart</span>
+        <span class="funnel-arrow">→</span>
+        <span class="funnel-node highlighted">Cart → Checkout</span>
+        <span class="funnel-arrow">→</span>
+        <span class="funnel-node">Payment</span>
+      </div>
+      <p style="font-size:13px;color:#aaa;margin-top:6px;">Finding A blocks before the funnel even starts. Findings B and C are in the highlighted steps.</p>
+    </div>
+
+    <!-- 4. Finding A -->
+    <div>
+      <p class="case-section-label">Finding A</p>
+      <h2 class="case-heading">The blocked session.</h2>
+      <p class="case-body">Every new session — first-time visitors, incognito browsers, paid acquisition clicks — hits a hard wall before they can interact with the page. The Usercentrics cookie consent widget loads asynchronously via shadow DOM and intercepts all pointer events for 10–15 seconds. No click, scroll, or navigation is possible until it resolves.</p>
+
+      <div class="finding-split">
+        <div>
+          <p class="finding-side-label current">Current</p>
+          <div class="finding-video-wrap">
+            <video controls playsinline muted loop>
+              <source src="videos/zooroyal/clip-01-cookie-wall.webm" type="video/webm">
+            </video>
+          </div>
+        </div>
+        <div>
+          <p class="finding-side-label improved">Improved</p>
+          <div class="finding-mockup-card">
+            <p class="mockup-change">Non-blocking slim banner at the bottom of the screen</p>
+            <p class="mockup-detail">The page loads fully interactive. The consent UI renders as a slim bar at the bottom — visible but non-intrusive. Users can scroll, browse, and engage immediately. Consent is stored after first interaction; returning visitors are never interrupted again. GDPR-compliant: no data processed until consent is given.</p>
+            <p class="mockup-metric">Target metric: first-session bounce rate −10% · time-to-first-interaction −12s</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="benchmark">
+        <p>Baymard Institute: consent banners that block page interaction increase bounce rates by 12–23% on first-session landing pages. Every euro spent on paid acquisition currently lands on a blocked experience.</p>
+      </div>
+    </div>
+
+    <!-- 5. Finding B -->
+    <div>
+      <p class="case-section-label">Finding B</p>
+      <h2 class="case-heading">The invisible button.</h2>
+      <p class="case-body">The add-to-cart button on product listing pages is icon-only and hidden until hover. On desktop, it requires a hover interaction to appear. On mobile — roughly 60% of German e-commerce sessions — hover states don't exist. The button is effectively invisible to touch users.</p>
+
+      <div class="finding-split">
+        <div>
+          <p class="finding-side-label current">Current</p>
+          <div class="finding-video-wrap">
+            <video controls playsinline muted loop>
+              <source src="videos/zooroyal/clip-02-invisible-button.webm" type="video/webm">
+            </video>
+          </div>
+        </div>
+        <div>
+          <p class="finding-side-label improved">Improved</p>
+          <div class="finding-mockup-card">
+            <p class="mockup-change">Persistent labelled CTA — visible on all devices without interaction</p>
+            <p class="mockup-detail">Replace the hover-only icon with a persistent "In den Warenkorb" button below the product price. Always visible, always clickable — same experience on touch as on desktop. The label makes the action unambiguous. No discovery required.</p>
+            <p class="mockup-metric">Target metric: add-to-cart click rate from product listing +15%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="benchmark">
+        <p>Baymard Institute: "unclear or missing add-to-cart affordance" is a top-10 mobile UX failure. On mobile (≈60% of German e-commerce sessions, Statista 2024), hover-dependent UI patterns create a complete dead zone.</p>
+      </div>
+    </div>
+
+    <!-- 6. Finding C -->
+    <div>
+      <p class="case-section-label">Finding C</p>
+      <h2 class="case-heading">The 3-click tax.</h2>
+      <p class="case-body">Between adding a product to the cart and reaching the checkout form, a user must make three navigational decisions: click the cart icon, navigate through a side panel, reach the full cart page, then click "Zur Kasse". Each step introduces a moment to reconsider, a page load, and a chance to leave.</p>
+
+      <div class="finding-split">
+        <div>
+          <p class="finding-side-label current">Current</p>
+          <div class="finding-video-wrap">
+            <video controls playsinline muted loop>
+              <source src="videos/zooroyal/clip-03-three-clicks.webm" type="video/webm">
+            </video>
+          </div>
+        </div>
+        <div>
+          <p class="finding-side-label improved">Improved</p>
+          <div class="finding-mockup-card">
+            <p class="mockup-change">"Direkt zur Kasse" CTA in the cart side panel — skip the intermediate page</p>
+            <p class="mockup-detail">Add a primary checkout CTA directly in the cart side panel. High-intent users skip the intermediate cart page entirely — one click from add-to-cart to checkout. The full cart page remains accessible via a secondary link for users who want to review or change their order.</p>
+            <p class="mockup-metric">Target metric: cart-to-checkout conversion rate +20%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="benchmark">
+        <p>Baymard Institute: the average optimised checkout has 14.88 form fields vs. an industry average of 23.48. Each unnecessary navigational step removes approximately 20% of remaining purchase intent. Reducing from 3 clicks to 2 is a revenue decision, not a UX preference.</p>
+      </div>
+    </div>
+
+    <!-- 7. Prioritisation -->
+    <div>
+      <p class="case-section-label">Prioritisation</p>
+      <h2 class="case-heading">What I'd tackle first.</h2>
+      <p class="case-body">Three findings, one backlog. Ordered by impact on the broadest set of users, not by effort — because starting with what moves the needle fastest is how you earn the trust to do the harder work next.</p>
+
+      <div class="priority-grid">
+        <div class="priority-card">
+          <p class="p-tag">First — Finding B</p>
+          <h3>Persistent add-to-cart CTA</h3>
+          <p>Affects every device, every session, every product listing. The highest-reach fix in the backlog — and the clearest success metric: add-to-cart click rate by device type.</p>
+          <p class="p-effort">~2 sprints · UI component + A/B test</p>
+        </div>
+        <div class="priority-card">
+          <p class="p-tag">Second — Finding A</p>
+          <h3>Non-blocking consent banner</h3>
+          <p>Lower effort than B or C — it's a Usercentrics configuration change plus legal review. Impact is concentrated on new users and paid acquisition: the sessions most likely to be cold and bounce-prone.</p>
+          <p class="p-effort">~1 sprint · Config + legal sign-off</p>
+        </div>
+        <div class="priority-card">
+          <p class="p-tag">Third — Finding C</p>
+          <h3>Direct checkout from cart panel</h3>
+          <p>Highest conversion impact but requires frontend rework across the cart flow — panel, cart page, checkout entry point. Do this after B and A have generated data and trust with stakeholders.</p>
+          <p class="p-effort">~3 sprints · Panel redesign + regression</p>
+        </div>
+        <div class="priority-card" style="background: white; border: 1.5px solid #e0e0e0;">
+          <p class="p-tag" style="color:#aaa;">Out of scope</p>
+          <h3 style="color:#aaa;">Visual design refresh</h3>
+          <p>The shop looks "a bit dated" — but subjective perception isn't a conversion metric. Defer until findings A–C have shipped and proven their impact.</p>
+          <p class="p-effort">Revisit in Q4 if KPIs warrant</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. 90-day roadmap -->
+    <div>
+      <p class="case-section-label">Roadmap</p>
+      <h2 class="case-heading">90 days.</h2>
+
+      <div class="item-list" style="margin-top: 20px;">
+        <div class="item-list-item">
+          <span class="item-num">→</span>
+          <div>
+            <p class="item-title">Days 1–30 · Persistent add-to-cart CTA (Finding B)</p>
+            <p class="item-desc">PO + Frontend + UX. Replace hover-only icon with persistent labelled button. A/B test: existing icon vs. labelled CTA, split by device type. Success: add-to-cart rate from PLP +15%, mobile parity with desktop.</p>
+          </div>
+        </div>
+        <div class="item-list-item">
+          <span class="item-num">→</span>
+          <div>
+            <p class="item-title">Days 30–60 · Non-blocking consent banner (Finding A)</p>
+            <p class="item-desc">PO + Analytics + Legal. Reconfigure Usercentrics to render as a non-blocking bottom bar. Legal review for GDPR compliance. Success: first-session bounce rate −10%, time-to-first-interaction −12s.</p>
+          </div>
+        </div>
+        <div class="item-list-item">
+          <span class="item-num">→</span>
+          <div>
+            <p class="item-title">Days 60–90 · Direct checkout from cart panel (Finding C)</p>
+            <p class="item-desc">PO + Full-stack + UX. Add primary "Direkt zur Kasse" CTA to cart side panel. Retain cart page as secondary option. Success: cart-to-checkout conversion rate +20%, validated via cohort split new vs. returning users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Validation -->
+    <div>
+      <p class="case-section-label">Validation</p>
+      <h2 class="case-heading">How I'd validate this with your data.</h2>
+      <p class="case-body">This audit is a hypothesis, not a verdict. Every finding above is based on public signals — the moment I have access to ZooRoyal's actual funnel data, here's exactly where I'd look first.</p>
+
+      <div class="item-list" style="margin-top: 20px;">
+        <div class="item-list-item">
+          <span class="item-num">A</span>
+          <div>
+            <p class="item-title">Session start → first interaction time</p>
+            <p class="item-desc">How long does the average new session take to register its first click? Filter by device type and acquisition source. A spike on mobile or paid traffic confirms the cookie wall hypothesis.</p>
+          </div>
+        </div>
+        <div class="item-list-item">
+          <span class="item-num">B</span>
+          <div>
+            <p class="item-title">PLP add-to-cart rate by device</p>
+            <p class="item-desc">Is the desktop add-to-cart rate significantly higher than mobile? A large gap is the fingerprint of a hover-dependent UI pattern. If mobile rate is within 20% of desktop, the finding is weaker than assumed.</p>
+          </div>
+        </div>
+        <div class="item-list-item">
+          <span class="item-num">C</span>
+          <div>
+            <p class="item-title">Cart panel → checkout conversion</p>
+            <p class="item-desc">What percentage of users who open the cart side panel proceed to the checkout form? How many drop off at the intermediate cart page? A high drop rate at that step validates the 3-click hypothesis directly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block" style="margin-top: 28px;">
+        <p>I'd love to see where the data agrees — and where it surprises me.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="case-cta">
+      <h2>Want to talk through the findings?</h2>
+      <p>I find the problem, frame the impact, and ship the fix.</p>
+      <a href="contact.html" class="btn">Get in touch <svg class="arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="https://www.linkedin.com/in/amengelkamp/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/amengelkamp" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+</body>
+</html>
