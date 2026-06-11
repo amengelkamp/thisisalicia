@@ -136,8 +136,8 @@
         <div class="item-list-item">
           <span class="item-num">01</span>
           <div>
-            <p class="item-title">Make the home screen row the primary surface, not a deprecated one</p>
-            <p class="item-desc">Spotify already pushes concerts through Now Playing and the weekly playlist. But Now Playing catches you mid-listen, not mid-decision. The home screen row is different: it reaches you at any moment, in any context, without requiring you to be actively playing the artist. The person who has no idea Remi Wolf is playing Cologne next month will never check the playlist — the row finds them. It existed in 2022. Making it consistently deployed and the default surface, not a secondary one, is the highest-leverage change.</p>
+            <p class="item-title">Make the home screen row the primary surface, not an inconsistently deployed one</p>
+            <p class="item-desc">Spotify already pushes concerts through Now Playing and the weekly playlist — but both require prior behaviour. Now Playing only fires if you're actively listening to the artist. The playlist requires you to know it exists. The home screen row is different: it intercepts users who have no intent to look for concerts. That's a meaningfully larger addressable audience, which is why it's the highest-leverage surface. The likely reason Spotify scaled it back after 2022 is the clutter problem — a row that shows up when you have nothing nearby is just noise. The fix is already in this prototype: the row only renders when there's at least one match within radius, and disappears silently when there isn't. No match, no row, no clutter. That design removes the objection.</p>
           </div>
         </div>
         <div class="item-list-item">
