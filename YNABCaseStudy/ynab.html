@@ -65,9 +65,10 @@
     <!-- 2. Context -->
     <div>
       <p class="case-section-label">Context</p>
-      <h2 class="case-heading">Why activation, not just features.</h2>
-      <p class="case-body">My background is payment processing — the backend layer that sits directly behind a checkout button. In that role I learned that users who can't understand what they spent lose trust in their financial tools and churn. That's not a UX problem. It's an activation and retention problem.</p>
-      <p class="case-body">Amazon is YNAB's #1 friction point and a real churn risk. Users who can't categorize their Amazon spending stop trusting the app and stop paying. This case study treats it as an activation problem — not a feature request.</p>
+      <h2 class="case-heading">We have to take care of this</h2>
+      <p class="case-body">My background is payment processing — taking care of invoice creation, bookings and payment processing via multiple payment providers. But also in my private life I love thinking about payment processes and how to make invoicing and payment capturing more visible and easy to comprehend.</p>
+      <p class="case-body">A tool I already use for almost 3 years and which I deeply love is YNAB. In many aspects it allowed me to get a frustration-free and easy-to-use overview of my financial status I never had before.</p>
+      <p class="case-body">Buuuut there is one pain point - a problem that month after month again stops me from budgeting my transactions. And I believe it is a real churn risk: The categorization of Amazon bookings is a real pain in the a**. Because there are several bookings a month it's hard to keep track of which orders and products they belong to. In this case study I tried finding a fix for this problem - which is in my opinion not just a feature request, but the root cause of user frustration and ultimately churn.</p>
     </div>
 
     <!-- 3. Problem -->
@@ -75,8 +76,8 @@
       <p class="case-section-label">Problem</p>
       <h2 class="case-heading">Amazon is YNAB's blind spot.</h2>
 
-      <p class="case-body">YNAB shows every Amazon purchase as a raw order ID — no product name, no category hint. For heavy Amazon shoppers, this means manually cross-referencing order history for every single transaction to know what they spent money on.</p>
-      <p class="case-body">Amazon provides no official API for order data. YNAB has no native solution. The community has been asking for years.</p>
+      <p class="case-body">YNAB shows every Amazon purchase as a raw order ID — no product name, no category hint. For heavy Amazon shoppers (like me ;)), this means I have to copy-paste the order IDs from YNAB to Amazon manually to check and then decide which product they belong to.</p>
+      <p class="case-body">When I look around, it seems I am not the only one who is bothered by this:</p>
 
       <div class="stats-row">
         <div>
@@ -100,7 +101,6 @@
       </div>
 
       <p class="case-body">74 workaround suggestions in one thread — Amazon payment pages, email search, ordering items separately, dedicated credit cards — is not a sign that users found solutions. It's a sign that no good solution exists.</p>
-      <p class="case-body">"Ready to throw in the towel" is not a feature request. It's a cancellation in progress.</p>
     </div>
 
     <!-- 3. Solution -->
@@ -108,7 +108,8 @@
       <p class="case-section-label">Solution</p>
       <h2 class="case-heading">Match the email. Enrich the transaction.</h2>
 
-      <p class="case-body">Amazon sends an order confirmation email for every purchase. That email contains the product name and the exact charge amount. YNAB already has the transaction amount and date. The gap between them is solvable.</p>
+      <p class="case-body">So how can this be fixed? First thought: Let's just connect to an Amazon API. Well, Amazon provides no official API for order data. But there's another option: what information does Amazon actually give us about our orders?</p>
+      <p class="case-body">Amazon sends an order confirmation email for every purchase. That email contains the product name and the exact charge amount. YNAB already has the transaction amount and date. So the gap between them is solvable.</p>
 
       <div class="item-list" style="margin-top: 24px;">
         <div class="item-list-item">
@@ -154,15 +155,14 @@
       <div class="screen-item">
         <img src="gallery/ynab-screenshot.png" alt="Announcement modal">
         <p class="screen-num">Screen 1 — Announcement Modal</p>
-        <p class="screen-title">Lead with the benefit, not the feature.</p>
-        <p class="screen-desc">The modal triggers on first login after launch. Headline is "Give your Amazon transactions a name." — not "Connect your email." The benefit leads. The mechanism follows. Dismiss is always available; no forced opt-in.</p>
+        <p class="screen-desc">The modal triggers on first login after launch. Headline is "Give your Amazon transactions a name." — not "Connect your email." The benefit leads. The mechanism follows. Dismiss is always available; no forced opt-in. The user has to understand and see the benefit instead of forcing them into the feature.</p>
       </div>
 
       <div class="screen-item">
         <img src="gallery/screen2.png" alt="Email provider selection">
         <p class="screen-num">Screen 2 — Email Connect</p>
         <p class="screen-title">Earn the trust before asking for access.</p>
-        <p class="screen-desc">The OAuth screen explains exactly what YNAB reads (Amazon confirmation emails only), what it never reads (everything else), and why. Privacy reassurance is not fine print — it's the headline of this screen.</p>
+        <p class="screen-desc">The OAuth screen explains exactly what YNAB reads (Amazon confirmation emails only), what it never reads (everything else), and why. We make it visible that we value their privacy.</p>
       </div>
 
       <div class="screen-item">
@@ -248,8 +248,8 @@
     <!-- 7. What's next -->
     <div>
       <p class="case-section-label">What's Next</p>
-      <h2 class="case-heading">This is a platform, not a feature.</h2>
-      <p class="case-body" style="margin-bottom: 24px;">The email-parsing and matching logic built for Amazon works for any retailer that sends order confirmation emails. Phase 2 expands the surface area.</p>
+      <h2 class="case-heading">Obviously: This is not just about orders from Amazon. But let's tackle the big one first.</h2>
+      <p class="case-body" style="margin-bottom: 24px;">Of course the email-parsing and matching logic built for Amazon works for any retailer that sends order confirmation emails. After we've tested it for Amazon, let's check out other retailers.</p>
 
       <div class="item-list">
         <div class="item-list-item">
@@ -263,7 +263,7 @@
           <span class="item-num">→</span>
           <div>
             <p class="item-title">Multi-inbox support</p>
-            <p class="item-desc">Households where multiple people shop on one account from different email addresses. The #2 complaint in the r/ynab thread.</p>
+            <p class="item-desc">Now we start to think about shared households that use YNAB together. Often different people use different email addresses. Already mentioned as the #2 complaint in the r/ynab thread.</p>
           </div>
         </div>
         <div class="item-list-item">
