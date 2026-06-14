@@ -3,185 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZooRoyal Checkout Audit — Alicia Mengelkamp</title>
+  <title>ZooRoyal — a UX Analysis · Alicia Mengelkamp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <style>
-    .case-section-label { color: #e07b00; }
-    .item-num           { color: #e07b00; font-weight: 800; }
-    .work-dot           { background: #e07b00; }
-    .case-hero-title    { font-weight: 800; }
-    .case-heading       { font-weight: 800; }
+    /* ── Brand token ── */
+    :root {
+      --zr:  #00869D;
+      --zry: #f5d20a;
+    }
 
-    /* Finding layout: video left, mockup right */
+    /* Override global accent to ZooRoyal brand */
+    .case-section-label { color: var(--zr); }
+    .item-num           { color: var(--zr); font-weight: 800; }
+    .work-dot           { background: var(--zr); }
+    .quote-block        { border-left-color: var(--zr); }
+
+    /* ── Hook before/after ── */
+    .zr-ba-badge {
+      display: inline-block;
+      background: var(--zr); color: white;
+      font-size: 20px; font-weight: 900;
+      padding: 8px 14px; border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .zr-ba-sub  { font-size: 13px; color: #555; margin-bottom: 10px; }
+    .zr-ba-gate {
+      font-size: 12px; color: #aaa; font-style: italic;
+      border: 1px dashed #ddd; border-radius: 6px;
+      padding: 8px 10px; line-height: 1.5; margin-bottom: 10px;
+    }
+    .zr-ba-code {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #e8f5f8; border: 1.5px solid var(--zr);
+      border-radius: 8px; padding: 9px 13px; margin-bottom: 10px;
+      font-size: 14px; font-weight: 800; color: var(--zr); letter-spacing: 0.06em;
+    }
+    .zr-ba-btn { padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-align: center; }
+    .zr-ba-btn.blocked { background: #f2f2f2; color: #bbb; }
+    .zr-ba-btn.go      { background: var(--zr); color: white; }
+
+    /* ── Finding layout ── */
     .finding-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 32px;
       margin-top: 28px;
+      align-items: start;
     }
-    @media (max-width: 640px) {
-      .finding-split { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 640px) { .finding-split { grid-template-columns: 1fr; } }
+
+    .finding-col { display: flex; flex-direction: column; align-items: center; }
 
     .finding-side-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 14px; text-align: center;
     }
-    .finding-side-label.current  { color: #e07b00; }
-    .finding-side-label.improved { color: #17a349; }
+    .finding-side-label.before { color: #999; }
+    .finding-side-label.after  { color: #17a349; }
 
-    /* Video card */
-    .finding-video-wrap {
-      background: #111;
-      border-radius: 14px;
-      overflow: hidden;
-      aspect-ratio: 16/10;
+    /* ── iPhone 17 phone frame ── */
+    /* iPhone 17: ~390×844pt screen → ratio 1:2.165              */
+    /* Frame outer: 216px wide. Screen inner: 196px × 424px      */
+    .phone-frame {
+      background: #141414;
+      border-radius: 40px;
+      padding: 14px 10px 10px;
+      width: 216px;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 1px #333,
+        0 16px 40px rgba(0,0,0,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.06);
       position: relative;
     }
-    .finding-video-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    /* Side button */
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      right: -3px; top: 80px;
+      width: 3px; height: 40px;
+      background: #2a2a2a;
+      border-radius: 0 2px 2px 0;
     }
-
-    /* Improved mockup card */
-    .finding-mockup-card {
-      background: #f8f8f6;
-      border: 1.5px solid #1a1a1a;
-      border-radius: 14px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      height: 100%;
-    }
-
-    .finding-mockup-card .mockup-change {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1.35;
-    }
-
-    .finding-mockup-card .mockup-detail {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .finding-mockup-card .mockup-metric {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #17a349;
-      border-top: 1px solid #e0e0e0;
-      padding-top: 12px;
-    }
-
-    /* Baymard benchmark callout */
-    .benchmark {
-      border-left: 3px solid #e07b00;
-      padding: 2px 0 2px 18px;
-      margin-top: 20px;
-    }
-    .benchmark p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: #555;
-      font-style: italic;
-    }
-
-    /* Funnel strip */
-    .funnel-strip {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 20px 0 8px;
-    }
-    .funnel-node {
-      font-size: 13px;
-      font-weight: 500;
-      padding: 6px 14px;
+    /* Dynamic Island */
+    .phone-island {
+      width: 64px; height: 9px;
+      background: #0a0a0a;
       border-radius: 100px;
-      background: #f2f2f2;
-      color: #555;
-      white-space: nowrap;
+      margin: 0 auto 6px;
     }
-    .funnel-node.highlighted {
-      background: #fff3e0;
-      color: #e07b00;
-      font-weight: 700;
+    .phone-screen {
+      background: white;
+      border-radius: 32px;
+      overflow-y: auto;
+      height: 424px;
+      scrollbar-width: none;
     }
-    .funnel-arrow { color: #bbb; font-size: 1rem; }
+    .phone-screen::-webkit-scrollbar { display: none; }
 
-    /* Phone screenshot frame */
-    .finding-phone-wrap {
-      background: #1a1a1a;
-      border-radius: 18px;
-      overflow: hidden;
-      max-width: 200px;
-      margin: 0 auto;
-      border: 2px solid #333;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    /* ── ZooRoyal mini UI tokens ── */
+    .zr-nav {
+      background: white; padding: 7px 9px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      position: sticky; top: 0; z-index: 10;
     }
-    .finding-phone-wrap img {
-      width: 100%;
-      display: block;
+    .zr-logo { font-size: 10px; font-weight: 900; color: var(--zr); }
+    .zr-ham  { display: flex; flex-direction: column; gap: 2.5px; }
+    .zr-ham span { display: block; width: 12px; height: 1.5px; background: #444; border-radius: 1px; }
+    .zr-icons { display: flex; gap: 7px; }
+    .zr-ic { width: 13px; height: 13px; background: #eee; border-radius: 50%; }
+
+    .zr-search {
+      background: #f4f4f4; border-radius: 6px;
+      margin: 6px 9px; padding: 5px 8px;
+      font-size: 8px; color: #bbb;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .zr-search-o { width: 8px; height: 8px; border: 1.5px solid #ccc; border-radius: 50%; flex-shrink: 0; }
+
+    /* hero brand banner */
+    .zr-hero-brand {
+      background: var(--zr); padding: 13px 10px; overflow: hidden;
+    }
+    .zr-hero-brand-txt { font-size: 11px; font-weight: 800; color: white; line-height: 1.3; }
+    .zr-hero-rainbow {
+      height: 4px; margin-top: 8px; border-radius: 2px; opacity: 0.75;
+      background: linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
     }
 
-    /* Priority grid */
-    .priority-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 20px;
+    /* improved hero */
+    .zr-hero-imp { background: #f2f2f2; padding: 10px; }
+    .zr-pill {
+      display: inline-block; background: var(--zr); color: white;
+      font-size: 7px; font-weight: 700; padding: 3px 7px;
+      border-radius: 100px; margin-bottom: 5px; letter-spacing: 0.04em;
     }
-    @media (max-width: 540px) {
-      .priority-grid { grid-template-columns: 1fr; }
+    .zr-hero-imp-h { font-size: 10px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin-bottom: 8px; }
+    .zr-cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .zr-cat-tile {
+      background: white; border: 1px solid #ddd;
+      border-radius: 6px; padding: 8px 5px;
+      text-align: center; font-size: 7.5px; font-weight: 600; color: #333;
     }
-    .priority-card {
-      background: #f2f2f2;
-      border-radius: 14px;
-      padding: 20px;
+
+    /* nav with sticky category row */
+    .zr-nav-cats { background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
+    .zr-nav-top  { padding: 7px 9px; display: flex; align-items: center; justify-content: space-between; }
+    .zr-cat-row  {
+      display: flex; overflow-x: auto; scrollbar-width: none;
+      border-top: 1px solid #f0f0f0; padding: 4px 9px;
     }
-    .priority-card .p-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #e07b00;
-      margin-bottom: 6px;
+    .zr-cat-row::-webkit-scrollbar { display: none; }
+    .zr-cat-item {
+      font-size: 8px; font-weight: 600; color: #888;
+      padding: 2px 8px 4px; white-space: nowrap; flex-shrink: 0;
+      border-bottom: 2px solid transparent;
     }
-    .priority-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #1a1a1a;
+    .zr-cat-item.sel { color: var(--zr); border-bottom-color: var(--zr); }
+
+    /* offer section */
+    .zr-offer-wrap { padding: 8px; }
+    .zr-offer-banner { background: var(--zr); border-radius: 10px; padding: 10px; }
+    .zr-pct  { font-size: 26px; font-weight: 900; color: var(--zry); line-height: 1; }
+    .zr-word { font-size: 9px;  font-weight: 800; color: var(--zry); letter-spacing: 0.05em; }
+    .zr-fine { font-size: 7.5px; color: rgba(255,255,255,0.82); margin-top: 4px; line-height: 1.4; }
+
+    .zr-offer-title { font-size: 11px; font-weight: 700; color: #1a1a1a; margin-top: 8px; line-height: 1.4; }
+    .zr-gate { font-size: 8.5px; color: #aaa; font-style: italic; margin-top: 5px; line-height: 1.45; }
+    .zr-code {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #e8f5f8; border: 1.5px solid var(--zr);
+      border-radius: 6px; padding: 5px 8px; margin-top: 6px;
+      font-size: 9px; font-weight: 800; color: var(--zr); letter-spacing: 0.06em;
     }
-    .priority-card p {
-      font-size: 13px;
-      color: #777;
-      line-height: 1.55;
-      margin: 0;
+    .zr-copy { font-size: 8px; opacity: 0.55; }
+    .zr-note { font-size: 7.5px; color: #aaa; margin-top: 4px; font-style: italic; }
+    .zr-cta  { display: block; margin-top: 7px; padding: 7px; border-radius: 7px; font-size: 8.5px; font-weight: 700; text-align: center; }
+    .zr-cta.off { background: #eee; color: #bbb; }
+    .zr-cta.on  { background: var(--zr); color: white; }
+
+    /* carousel dots */
+    .zr-dots { display: flex; justify-content: center; gap: 4px; padding: 8px 0; }
+    .zr-dot  { width: 5px; height: 5px; border-radius: 50%; background: #ddd; }
+    .zr-dot.on { background: var(--zr); width: 14px; border-radius: 3px; }
+
+    /* stacked offer cards */
+    .zr-stack { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .zr-card  {
+      border-radius: 9px; padding: 9px 11px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .priority-card .p-effort {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #aaa;
-      margin-top: 10px;
+    .zr-card.c1 { background: var(--zr); }
+    .zr-card.c2 { background: #5b3a90; }
+    .zr-card.c3 { background: #17a349; }
+    .zr-card-pct { font-size: 16px; font-weight: 900; color: var(--zry); line-height: 1; }
+    .zr-card.c2 .zr-card-pct { color: #f0d060; }
+    .zr-card.c3 .zr-card-pct { color: white; }
+    .zr-card-lbl { font-size: 7.5px; color: rgba(255,255,255,0.85); line-height: 1.3; margin-top: 2px; }
+    .zr-card-btn {
+      font-size: 7.5px; font-weight: 700; color: white;
+      background: rgba(255,255,255,0.22); padding: 3px 8px; border-radius: 100px; flex-shrink: 0;
     }
+
+    /* product grid */
+    .zr-products { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 8px; }
+    .zr-prod { background: #f5f5f5; border-radius: 8px; padding: 7px; }
+    .zr-prod-img {
+      width: 100%; aspect-ratio: 1; background: #e0e0e0;
+      border-radius: 5px; margin-bottom: 5px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .zr-prod-img span { width: 50%; height: 50%; background: #c4c4c4; border-radius: 3px; display: block; }
+    .zr-prod-name  { font-size: 7.5px; font-weight: 600; color: #333; line-height: 1.3; margin-bottom: 2px; }
+    .zr-prod-price { font-size: 9px; font-weight: 800; color: var(--zr); }
+
+    /* brand-only placeholder blocks */
+    .zr-placeholder {
+      background: #ebebeb; border-radius: 7px; margin: 4px 8px;
+      padding: 18px 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7.5px; color: #bbb; font-style: italic;
+    }
+
+    /* callout note inside phone */
+    .zr-callout {
+      background: #f0f0f0; border-left: 2px solid #999;
+      margin: 4px 8px; padding: 5px 7px; border-radius: 0 5px 5px 0;
+      font-size: 7px; color: #666; line-height: 1.4;
+    }
+
+    /* ── Section label sublabel ── */
+    .finding-slabel { font-size: 8px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 9px 2px; }
+
+    /* ── Metric strip ── */
+    .finding-metric {
+      margin-top: 20px; padding: 13px 18px;
+      background: #f0faf3; border-left: 3px solid #17a349;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px; font-weight: 600; color: #17a349;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Benchmark ── */
+    .benchmark { border-left: 3px solid var(--zr); padding: 2px 0 2px 18px; margin-top: 20px; }
+    .benchmark p { font-size: 15px; line-height: 1.7; color: #555; font-style: italic; }
+
+    /* ── Funnel strip ── */
+    .funnel-strip { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 20px 0 8px; }
+    .funnel-node { font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 100px; background: #f2f2f2; color: #555; white-space: nowrap; }
+    .funnel-node.hl { background: #e0f3f6; color: var(--zr); font-weight: 700; }
+    .funnel-arrow { color: #bbb; }
+
+    /* ── Priority grid ── */
+    .priority-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    @media (max-width: 540px) { .priority-grid { grid-template-columns: 1fr; } }
+    .priority-card { background: #f2f2f2; border-radius: 14px; padding: 20px; }
+    .priority-card .p-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--zr); margin-bottom: 6px; }
+    .priority-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
+    .priority-card p  { font-size: 13px; color: #777; line-height: 1.55; margin: 0; }
+    .priority-card .p-effort { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #aaa; margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -203,259 +287,501 @@
 
     <!-- 1. Hook -->
     <div>
-      <p class="case-section-label">Case Study · ZooRoyal E-Commerce</p>
-      <h1 class="case-hero-title">I own payment processing at an&nbsp;e-commerce company. When I walked ZooRoyal's checkout, I counted three moments where I would have lost a&nbsp;user.</h1>
-      <p class="case-hero-sub">A product owner's audit of the add-to-cart → payment funnel. No internal data. Three public signals. One prioritised roadmap.</p>
-    </div>
+      <p class="case-section-label">Case Study · ZooRoyal</p>
+      <h1 class="case-hero-title">ZooRoyal — a UX Analysis.</h1>
+      <p class="case-hero-sub">Five friction points on the start page, benchmarked against Zalando, AboutYou, IKEA, and Decathlon. One prioritised fix order.</p>
 
-    <!-- 2. Why my read is different -->
-    <div>
-      <p class="case-section-label">Context</p>
-      <h2 class="case-heading">Why this read is different.</h2>
-      <p class="case-body">I'm a PO at flaschenpost — Germany's largest on-demand beverage delivery service. My domain is invoice creation and payment processing: the layer that sits directly behind a checkout button. That means when I audit a checkout funnel, I'm not just evaluating what a user sees — I'm evaluating what each friction point costs at the layer I own.</p>
-      <p class="case-body">This is a public-facing audit. I triangulated findings from three sources:</p>
-
-      <div class="item-list" style="margin-top: 20px;">
-        <div class="item-list-item">
-          <span class="item-num">01</span>
-          <div>
-            <p class="item-title">Baymard Institute benchmarks</p>
-            <p class="item-desc">Industry research on checkout UX and cart abandonment — the credibility anchor when internal data isn't available.</p>
+      <div class="before-after">
+        <div>
+          <p class="ba-label">Before</p>
+          <div class="ba-card">
+            <div class="zr-ba-badge">12% RABATT</div>
+            <p class="zr-ba-sub">auf Trockenfutter · ab 69€</p>
+            <div class="zr-ba-gate">Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten.</div>
+            <div class="zr-ba-btn blocked">Jetzt Rabatt sichern</div>
           </div>
         </div>
-        <div class="item-list-item">
-          <span class="item-num">02</span>
-          <div>
-            <p class="item-title">Playwright browser walkthrough</p>
-            <p class="item-desc">Automated end-to-end journey through the live shop — homepage to checkout — with video capture at each step.</p>
-          </div>
-        </div>
-        <div class="item-list-item">
-          <span class="item-num">03</span>
-          <div>
-            <p class="item-title">Direct user observation</p>
-            <p class="item-desc">Walking through the shop as a first-time customer and annotating friction points, cognitive load, and dead-ends.</p>
+        <div>
+          <p class="ba-label">After</p>
+          <div class="ba-card">
+            <div class="zr-ba-badge">12% RABATT</div>
+            <p class="zr-ba-sub">auf Trockenfutter · ab 69€</p>
+            <div class="zr-ba-code">ZR12SAVE <span style="opacity:0.45; font-size:13px;">⧉</span></div>
+            <div class="zr-ba-btn go">Jetzt entdecken →</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 3. Funnel scope -->
+    <!-- 2. Context -->
+    <div>
+      <p class="case-section-label">Context</p>
+      <h2 class="case-heading">Why this read is different.</h2>
+      <p class="case-body">I'm a PO at flaschenpost — Germany's largest on-demand beverage delivery. My domain is invoice creation and payment processing: the layer directly behind a checkout button. When I look at a login gate on a discount offer, I'm not evaluating a UX preference — I'm evaluating a conversion decision at the layer I own.</p>
+      <p class="case-body">This is a public audit benchmarked against four best-practice start pages: Zalando, AboutYou, IKEA, and Decathlon. No internal data. Five clear gaps.</p>
+    </div>
+
+    <!-- 3. Scope -->
     <div>
       <p class="case-section-label">Scope</p>
-      <h2 class="case-heading">The funnel I audited.</h2>
-      <p class="case-body">The shop <em>feels</em> fine — which is exactly why it's dangerous. Invisible friction doesn't register to a casual user. It only shows up in funnel drop-off data. All three findings sit in the highest-impact zone for conversion.</p>
-
+      <h2 class="case-heading">Where the friction lives.</h2>
+      <p class="case-body">All five findings sit on the start page — before a user has entered the purchase funnel. Fix these and you increase the volume of users who reach product pages and checkout.</p>
       <div class="funnel-strip">
-        <span class="funnel-node highlighted">Homepage</span>
+        <span class="funnel-node hl">Start Page</span>
         <span class="funnel-arrow">→</span>
         <span class="funnel-node">Category</span>
         <span class="funnel-arrow">→</span>
         <span class="funnel-node">Product listing</span>
         <span class="funnel-arrow">→</span>
-        <span class="funnel-node highlighted">Add to cart</span>
+        <span class="funnel-node">Add to cart</span>
         <span class="funnel-arrow">→</span>
-        <span class="funnel-node highlighted">Cart → Checkout</span>
+        <span class="funnel-node">Checkout</span>
         <span class="funnel-arrow">→</span>
         <span class="funnel-node">Payment</span>
       </div>
-      <p style="font-size:13px;color:#aaa;margin-top:6px;">Start page findings 1–3 sit on the homepage — before users enter the funnel. Finding A blocks the funnel start. Findings B and C are in the cart and checkout steps.</p>
     </div>
 
-    <!-- 4. Finding A -->
+    <!-- ── FINDING 1 ── -->
     <div>
-      <p class="case-section-label">Finding A</p>
-      <h2 class="case-heading">The blocked session.</h2>
-      <p class="case-body">Every new session — first-time visitors, incognito browsers, paid acquisition clicks — hits a hard wall before they can interact with the page. The Usercentrics cookie consent widget loads asynchronously via shadow DOM and intercepts all pointer events for 10–15 seconds. No click, scroll, or navigation is possible until it resolves.</p>
+      <p class="case-section-label">Finding 1</p>
+      <h2 class="case-heading">The hero slot has no conversion purpose.</h2>
+      <p class="case-body">The entire above-fold hero is occupied by "ZooRoyal ist tierisch bunt" — a brand/pride banner with a rainbow stripe, no product, no CTA, no category entry point. This is the most valuable real estate on any start page. Every best-practice comparator uses it to deliver value: Zalando shows a live discount, AboutYou shows products, Decathlon shows sport categories. A new ZooRoyal visitor has no signal where to go or why to stay.</p>
+      <p class="case-body"><strong>Fix:</strong> Replace the brand banner with a conversion-oriented hero — category tiles for immediate navigation or a featured offer with a direct CTA.</p>
 
       <div class="finding-split">
-        <div>
-          <p class="finding-side-label current">Current</p>
-          <div class="finding-video-wrap">
-            <video controls playsinline muted loop>
-              <source src="../videos/zooroyal/clip-01-cookie-wall.webm" type="video/webm">
-            </video>
+        <div class="finding-col">
+          <p class="finding-side-label before">Current</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand">
+                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div class="zr-dots" style="padding:6px 0 4px;">
+                <div class="zr-dot on"></div><div class="zr-dot"></div><div class="zr-dot"></div><div class="zr-dot"></div>
+              </div>
+              <div class="zr-placeholder">Marken-Banner · kein Produkt</div>
+              <div class="zr-placeholder">Marken-Banner · kein Produkt</div>
+              <div class="zr-placeholder">Marken-Banner · kein Produkt</div>
+              <div class="zr-callout">Kein Produkt. Keine Kategorie. Kein Grund zu bleiben.</div>
+            </div>
           </div>
         </div>
-        <div>
-          <p class="finding-side-label improved">Improved</p>
-          <div class="finding-mockup-card">
-            <p class="mockup-change">Non-blocking slim banner at the bottom of the screen</p>
-            <p class="mockup-detail">The page loads fully interactive. The consent UI renders as a slim bar at the bottom — visible but non-intrusive. Users can scroll, browse, and engage immediately. Consent is stored after first interaction; returning visitors are never interrupted again. GDPR-compliant: no data processed until consent is given.</p>
-            <p class="mockup-metric">Target metric: first-session bounce rate −10% · time-to-first-interaction −12s</p>
+
+        <div class="finding-col">
+          <p class="finding-side-label after">Improved</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-imp">
+                <div class="zr-pill">3 Angebote aktiv diese Woche</div>
+                <div class="zr-hero-imp-h">Alles für dein Tier.<br>Direkt zum richtigen Bereich.</div>
+                <div class="zr-cat-grid">
+                  <div class="zr-cat-tile">Hunde</div>
+                  <div class="zr-cat-tile">Katzen</div>
+                  <div class="zr-cat-tile">Kleintiere</div>
+                  <div class="zr-cat-tile">Vögel</div>
+                </div>
+              </div>
+              <div class="finding-slabel">Aktuelle Angebote</div>
+              <div style="padding:0 8px 8px;">
+                <div style="background:var(--zr); border-radius:9px; padding:9px 11px; display:flex; align-items:center; justify-content:space-between;">
+                  <div>
+                    <div style="font-size:16px; font-weight:900; color:var(--zry); line-height:1;">12%</div>
+                    <div style="font-size:7.5px; color:rgba(255,255,255,0.85); margin-top:2px;">Trockenfutter · ab 69€</div>
+                  </div>
+                  <div style="font-size:7.5px; font-weight:700; color:white; background:rgba(255,255,255,0.22); padding:3px 8px; border-radius:100px;">Entdecken</div>
+                </div>
+              </div>
+              <div class="finding-slabel">Bestseller</div>
+              <div class="zr-products" style="padding:4px 8px 8px;">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="benchmark">
-        <p>Baymard Institute: consent banners that block page interaction increase bounce rates by 12–23% on first-session landing pages. Every euro spent on paid acquisition currently lands on a blocked experience.</p>
-      </div>
+      <div class="finding-metric">Metric: scroll depth to first product section +25%</div>
     </div>
 
-    <!-- 5. Finding B -->
+    <!-- ── FINDING 2 ── -->
     <div>
-      <p class="case-section-label">Finding B</p>
-      <h2 class="case-heading">The invisible button.</h2>
-      <p class="case-body">The add-to-cart button on product listing pages is icon-only and hidden until hover. On desktop, it requires a hover interaction to appear. On mobile — roughly 60% of German e-commerce sessions — hover states don't exist. The button is effectively invisible to touch users.</p>
+      <p class="case-section-label">Finding 2 — Biggest Gap</p>
+      <h2 class="case-heading">The login gate kills offer intent.</h2>
+      <p class="case-body">Every discount on the start page is walled behind account creation. The sequence: user sees "12% RABATT" → interest peaks → taps CTA → reads "Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten." → leaves. The offer creates desire. The wall destroys it before any product is seen.</p>
+      <p class="case-body"><strong>Compare with Zalando:</strong> discount code GER15 is shown directly on the hero with a one-click copy button. No account required. No friction between interest and action.</p>
+      <p class="case-body"><strong>Fix:</strong> Show the discount code directly on the page. Move account creation to checkout — it's where high-intent users are most willing to register, not before they've seen a single product.</p>
 
       <div class="finding-split">
-        <div>
-          <p class="finding-side-label current">Current</p>
-          <div class="finding-video-wrap">
-            <video controls playsinline muted loop>
-              <source src="../videos/zooroyal/clip-02-invisible-button.webm" type="video/webm">
-            </video>
+        <div class="finding-col">
+          <p class="finding-side-label before">Current</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand" style="padding:8px 10px;">
+                <div class="zr-hero-brand-txt" style="font-size:9px;">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div class="zr-offer-wrap">
+                <div class="zr-offer-banner">
+                  <div class="zr-pct">12%</div>
+                  <div class="zr-word">RABATT</div>
+                  <div class="zr-fine">Auf Trockenfutter · Hunde &amp; Katzen · ab 69€</div>
+                </div>
+                <div class="zr-offer-title">Spare 12% ab 69€ auf Trockenfutter</div>
+                <div class="zr-gate">Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten.</div>
+                <div class="zr-cta off">Jetzt Rabatt sichern</div>
+              </div>
+              <div class="zr-dots">
+                <div class="zr-dot"></div><div class="zr-dot on"></div><div class="zr-dot"></div><div class="zr-dot"></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <p class="finding-side-label improved">Improved</p>
-          <div class="finding-mockup-card">
-            <p class="mockup-change">Persistent labelled CTA — visible on all devices without interaction</p>
-            <p class="mockup-detail">Replace the hover-only icon with a persistent "In den Warenkorb" button below the product price. Always visible, always clickable — same experience on touch as on desktop. The label makes the action unambiguous. No discovery required.</p>
-            <p class="mockup-metric">Target metric: add-to-cart click rate from product listing +15%</p>
+
+        <div class="finding-col">
+          <p class="finding-side-label after">Improved</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand" style="padding:8px 10px;">
+                <div class="zr-hero-brand-txt" style="font-size:9px;">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div class="zr-offer-wrap">
+                <div class="zr-offer-banner">
+                  <div class="zr-pct">12%</div>
+                  <div class="zr-word">RABATT</div>
+                  <div class="zr-fine">Auf Trockenfutter · Hunde &amp; Katzen · ab 69€</div>
+                </div>
+                <div class="zr-offer-title">Spare 12% ab 69€ auf Trockenfutter</div>
+                <div class="zr-code">ZR12SAVE <span class="zr-copy">⧉ kopieren</span></div>
+                <div class="zr-note">Coupon wird im Checkout automatisch angewendet.</div>
+                <div class="zr-cta on">Jetzt entdecken →</div>
+              </div>
+              <div class="zr-dots">
+                <div class="zr-dot"></div><div class="zr-dot on"></div><div class="zr-dot"></div><div class="zr-dot"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="finding-metric">Metric: discount CTA click-through +35% · new user registration at checkout +18%</div>
+
       <div class="benchmark">
-        <p>Baymard Institute: "unclear or missing add-to-cart affordance" is a top-10 mobile UX failure. On mobile (≈60% of German e-commerce sessions, Statista 2024), hover-dependent UI patterns create a complete dead zone.</p>
+        <p>Zalando puts code GER15 directly on the hero — copy button, no login. ZooRoyal creates interest then immediately blocks it. That gap is a revenue leak, not a UX preference.</p>
       </div>
     </div>
 
-    <!-- 6. Finding C -->
+    <!-- ── FINDING 3 ── -->
     <div>
-      <p class="case-section-label">Finding C</p>
-      <h2 class="case-heading">The 3-click tax.</h2>
-      <p class="case-body">Between adding a product to the cart and reaching the checkout form, a user must make three navigational decisions: click the cart icon, navigate through a side panel, reach the full cart page, then click "Zur Kasse". Each step introduces a moment to reconsider, a page load, and a chance to leave.</p>
+      <p class="case-section-label">Finding 3</p>
+      <h2 class="case-heading">Category navigation is hidden in a hamburger.</h2>
+      <p class="case-body">New visitors have no signal that "Hunde", "Katzen", or "Kleintiere" exist as categories until they tap the hamburger menu. That's one extra cognitive step and one extra click before any orientation is possible. Zalando shows "Bekleidung · Schuhe · Accessoires" as sticky inline tabs directly below the logo — zero clicks, instant orientation on every page.</p>
+      <p class="case-body"><strong>Fix:</strong> A persistent category tab row below the nav bar — visible on every scroll position, zero interaction required to discover it.</p>
 
       <div class="finding-split">
-        <div>
-          <p class="finding-side-label current">Current</p>
-          <div class="finding-video-wrap">
-            <video controls playsinline muted loop>
-              <source src="../videos/zooroyal/clip-03-three-clicks.webm" type="video/webm">
-            </video>
+        <div class="finding-col">
+          <p class="finding-side-label before">Current</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-callout">Hamburger-only nav — categories invisible until tapped</div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand">
+                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div class="zr-placeholder">Hunde, Katzen, Kleintiere… nicht sichtbar</div>
+              <div class="zr-placeholder">Produkte erst nach Scroll + Tap sichtbar</div>
+            </div>
           </div>
         </div>
-        <div>
-          <p class="finding-side-label improved">Improved</p>
-          <div class="finding-mockup-card">
-            <p class="mockup-change">"Direkt zur Kasse" CTA in the cart side panel — skip the intermediate page</p>
-            <p class="mockup-detail">Add a primary checkout CTA directly in the cart side panel. High-intent users skip the intermediate cart page entirely — one click from add-to-cart to checkout. The full cart page remains accessible via a secondary link for users who want to review or change their order.</p>
-            <p class="mockup-metric">Target metric: cart-to-checkout conversion rate +20%</p>
+
+        <div class="finding-col">
+          <p class="finding-side-label after">Improved</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav-cats">
+                <div class="zr-nav-top">
+                  <div class="zr-ham"><span></span><span></span><span></span></div>
+                  <div class="zr-logo">ZooRoyal+</div>
+                  <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+                </div>
+                <div class="zr-cat-row">
+                  <div class="zr-cat-item sel">Hunde</div>
+                  <div class="zr-cat-item">Katzen</div>
+                  <div class="zr-cat-item">Kleintiere</div>
+                  <div class="zr-cat-item">Vögel</div>
+                  <div class="zr-cat-item">Fisch</div>
+                </div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand">
+                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div class="finding-slabel">Hunde · Empfehlungen für dich</div>
+              <div class="zr-products" style="padding:4px 8px 8px;">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="finding-metric">Metric: homepage → category navigation clicks +40%</div>
+    </div>
+
+    <!-- ── FINDING 4 ── -->
+    <div>
+      <p class="case-section-label">Finding 4</p>
+      <h2 class="case-heading">The carousel buries conversion-critical offers.</h2>
+      <p class="case-body">Three active discount offers sit inside a carousel. Slides 2 and 3 are invisible to anyone who doesn't actively swipe — which is the majority of users. A carousel is a valid pattern for brand or editorial content. It's the wrong pattern for offers that compete for purchase intent.</p>
+      <p class="case-body"><strong>Fix:</strong> Stack all active offers as visible cards below the hero. Every deal is seen on first scroll. No swipe required. The carousel can stay for brand content above — offers move below as a permanent strip.</p>
+
+      <div class="finding-split">
+        <div class="finding-col">
+          <p class="finding-side-label before">Current</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-offer-wrap">
+                <div class="zr-offer-banner">
+                  <div class="zr-pct">12%</div>
+                  <div class="zr-word">RABATT</div>
+                  <div class="zr-fine">Auf Spielzeug &amp; Snacks · Hund &amp; Katze</div>
+                </div>
+                <div class="zr-offer-title">Als Vorbereitung für die WM</div>
+                <div class="zr-gate">Registrieren oder anmelden, um Coupon zu erhalten.</div>
+                <div class="zr-cta off">Jetzt Rabatt sichern</div>
+              </div>
+              <div class="zr-dots">
+                <div class="zr-dot"></div><div class="zr-dot"></div><div class="zr-dot on"></div><div class="zr-dot"></div>
+              </div>
+              <div class="zr-callout">Slide 3 von 4 — die meisten User sehen nur Slide 1</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-col">
+          <p class="finding-side-label after">Improved</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand" style="padding:8px 10px;">
+                <div class="zr-hero-brand-txt" style="font-size:9px;">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div class="finding-slabel">Alle Angebote dieser Woche</div>
+              <div class="zr-stack">
+                <div class="zr-card c1">
+                  <div><div class="zr-card-pct">12%</div><div class="zr-card-lbl">Trockenfutter · ab 69€</div></div>
+                  <div class="zr-card-btn">Entdecken</div>
+                </div>
+                <div class="zr-card c2">
+                  <div><div class="zr-card-pct">12%</div><div class="zr-card-lbl">Spielzeug &amp; Snacks</div></div>
+                  <div class="zr-card-btn">Entdecken</div>
+                </div>
+                <div class="zr-card c3">
+                  <div><div class="zr-card-pct">5%</div><div class="zr-card-lbl">Alle Eigenmarken</div></div>
+                  <div class="zr-card-btn">Entdecken</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="finding-metric">Metric: non-first-offer interaction rate +60%</div>
+    </div>
+
+    <!-- ── FINDING 5 ── -->
+    <div>
+      <p class="case-section-label">Finding 5</p>
+      <h2 class="case-heading">No product imagery — just brand and badges.</h2>
+      <p class="case-body">The ZooRoyal start page shows brand banners and illustrated discount badges with no actual products visible. AboutYou, IKEA, and Decathlon all show real product photography above the fold. Without product signals, category intent cannot form — the user has no visual anchor to connect their pet's need to a specific product or category.</p>
+      <p class="case-body"><strong>Fix:</strong> Integrate real product photography into the start page — as a bestseller grid, recently viewed items, or category-specific product rows. Products sell products.</p>
+
+      <div class="finding-split">
+        <div class="finding-col">
+          <p class="finding-side-label before">Current</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-brand">
+                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
+                <div class="zr-hero-rainbow"></div>
+              </div>
+              <div style="padding:8px; display:flex; flex-direction:column; gap:5px;">
+                <div style="background:var(--zr); border-radius:8px; padding:12px; text-align:center;">
+                  <div style="font-size:20px; font-weight:900; color:var(--zry);">12%</div>
+                  <div style="font-size:8px; font-weight:800; color:var(--zry);">RABATT</div>
+                </div>
+                <div class="zr-placeholder">Kein Produkt sichtbar</div>
+                <div class="zr-placeholder">Kein Produkt sichtbar</div>
+              </div>
+              <div class="zr-callout">Kein einziges Produkt auf der gesamten Startseite sichtbar</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-col">
+          <p class="finding-side-label after">Improved</p>
+          <div class="phone-frame">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-imp" style="padding:8px 10px 6px;">
+                <div class="zr-pill">Bestseller diese Woche</div>
+              </div>
+              <div class="finding-slabel">Top-Produkte für Hunde</div>
+              <div class="zr-products">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="finding-metric">Metric: time-on-page +15% · bounce rate −10%</div>
+
       <div class="benchmark">
-        <p>Baymard Institute: the average optimised checkout has 14.88 form fields vs. an industry average of 23.48. Each unnecessary navigational step removes approximately 20% of remaining purchase intent. Reducing from 3 clicks to 2 is a revenue decision, not a UX preference.</p>
+        <p>AboutYou, IKEA, and Decathlon all show real product photography above the fold. Products create intent. Without them, there is nothing to buy.</p>
       </div>
     </div>
 
-    <!-- 7. Prioritisation -->
+    <!-- Prioritisation -->
     <div>
       <p class="case-section-label">Prioritisation</p>
-      <h2 class="case-heading">What I'd tackle first.</h2>
-      <p class="case-body">Three findings, one backlog. Ordered by impact on the broadest set of users, not by effort — because starting with what moves the needle fastest is how you earn the trust to do the harder work next.</p>
+      <h2 class="case-heading">Fix order: biggest reach, lowest effort first.</h2>
+      <p class="case-body">Five findings, one backlog. Ordered by reach — the fix that affects the most users with the least implementation cost goes first.</p>
+      <p class="case-body" style="margin-top:8px; font-weight:600; color: var(--zr);">Login gate → Category nav → Stack offers → Hero conversion → Product imagery</p>
 
       <div class="priority-grid">
         <div class="priority-card">
-          <p class="p-tag">First — Finding B</p>
-          <h3>Persistent add-to-cart CTA</h3>
-          <p>Affects every device, every session, every product listing. The highest-reach fix in the backlog — and the clearest success metric: add-to-cart click rate by device type.</p>
-          <p class="p-effort">~2 sprints · UI component + A/B test</p>
+          <p class="p-tag">First — Finding 2</p>
+          <h3>Remove the login gate</h3>
+          <p>Affects every visitor who sees an offer. Show code directly, move account creation to checkout. Highest reach, lowest effort — likely a config change plus legal sign-off.</p>
+          <p class="p-effort">~1 sprint · Config + legal review</p>
         </div>
         <div class="priority-card">
-          <p class="p-tag">Second — Finding A</p>
-          <h3>Non-blocking consent banner</h3>
-          <p>Lower effort than B or C — it's a Usercentrics configuration change plus legal review. Impact is concentrated on new users and paid acquisition: the sessions most likely to be cold and bounce-prone.</p>
-          <p class="p-effort">~1 sprint · Config + legal sign-off</p>
+          <p class="p-tag">Second — Finding 3</p>
+          <h3>Visible category navigation</h3>
+          <p>Sticky category row below nav. One frontend component. Affects every session on every device — orientation is the first UX job of any start page.</p>
+          <p class="p-effort">~1 sprint · Frontend component</p>
         </div>
         <div class="priority-card">
-          <p class="p-tag">Third — Finding C</p>
-          <h3>Direct checkout from cart panel</h3>
-          <p>Highest conversion impact but requires frontend rework across the cart flow — panel, cart page, checkout entry point. Do this after B and A have generated data and trust with stakeholders.</p>
-          <p class="p-effort">~3 sprints · Panel redesign + regression</p>
+          <p class="p-tag">Third — Finding 4</p>
+          <h3>Stack the offers</h3>
+          <p>Replace carousel with stacked cards for the offer section. All deals visible on first scroll. Low engineering effort — slides 2 and 3 currently have near-zero reach.</p>
+          <p class="p-effort">~1–2 sprints · Layout change</p>
         </div>
-        <div class="priority-card" style="background: white; border: 1.5px solid #e0e0e0;">
-          <p class="p-tag" style="color:#aaa;">Out of scope</p>
-          <h3 style="color:#aaa;">Visual design refresh</h3>
-          <p>The shop looks "a bit dated" — but subjective perception isn't a conversion metric. Defer until findings A–C have shipped and proven their impact.</p>
-          <p class="p-effort">Revisit in Q4 if KPIs warrant</p>
+        <div class="priority-card">
+          <p class="p-tag">Fourth — Findings 1 + 5</p>
+          <h3>Hero + product imagery</h3>
+          <p>Bigger redesign: replace the brand hero with conversion content and add product photography. Requires design, content pipeline, and cross-team alignment.</p>
+          <p class="p-effort">~3 sprints · Design + content</p>
         </div>
       </div>
     </div>
 
-    <!-- 8. 90-day roadmap -->
+    <!-- What's next -->
     <div>
-      <p class="case-section-label">Roadmap</p>
-      <h2 class="case-heading">90 days.</h2>
+      <p class="case-section-label">What's Next</p>
+      <h2 class="case-heading">The start page is the entry point. The funnel goes deeper.</h2>
+      <p class="case-body">Fix the start page and you increase the volume entering the funnel. The next audit layer is the category page and product detail page — the steps between start page and add-to-cart. After that: the checkout funnel.</p>
 
       <div class="item-list" style="margin-top: 20px;">
         <div class="item-list-item">
           <span class="item-num">→</span>
           <div>
-            <p class="item-title">Days 1–30 · Persistent add-to-cart CTA (Finding B)</p>
-            <p class="item-desc">PO + Frontend + UX. Replace hover-only icon with persistent labelled button. A/B test: existing icon vs. labelled CTA, split by device type. Success: add-to-cart rate from PLP +15%, mobile parity with desktop.</p>
+            <p class="item-title">Category page UX</p>
+            <p class="item-desc">Filter usability, sorting defaults, product card density — the decisions that determine whether browsing converts to intent.</p>
           </div>
         </div>
         <div class="item-list-item">
           <span class="item-num">→</span>
           <div>
-            <p class="item-title">Days 30–60 · Non-blocking consent banner (Finding A)</p>
-            <p class="item-desc">PO + Analytics + Legal. Reconfigure Usercentrics to render as a non-blocking bottom bar. Legal review for GDPR compliance. Success: first-session bounce rate −10%, time-to-first-interaction −12s.</p>
+            <p class="item-title">Product detail page (PDP)</p>
+            <p class="item-desc">Add-to-cart affordance, subscription nudge, cross-sell placement. The PDP is where intent either converts or dies.</p>
           </div>
         </div>
         <div class="item-list-item">
           <span class="item-num">→</span>
           <div>
-            <p class="item-title">Days 60–90 · Direct checkout from cart panel (Finding C)</p>
-            <p class="item-desc">PO + Full-stack + UX. Add primary "Direkt zur Kasse" CTA to cart side panel. Retain cart page as secondary option. Success: cart-to-checkout conversion rate +20%, validated via cohort split new vs. returning users.</p>
+            <p class="item-title">Checkout funnel</p>
+            <p class="item-desc">Cookie wall blocking the session, invisible add-to-cart button, 3-click cart-to-checkout tax — documented separately in the ZooRoyal Checkout Audit.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 9. Validation -->
-    <div>
-      <p class="case-section-label">Validation</p>
-      <h2 class="case-heading">How I'd validate this with your data.</h2>
-      <p class="case-body">This audit is a hypothesis, not a verdict. Every finding above is based on public signals — the moment I have access to ZooRoyal's actual funnel data, here's exactly where I'd look first.</p>
-
-      <div class="item-list" style="margin-top: 20px;">
-        <div class="item-list-item">
-          <span class="item-num">A</span>
-          <div>
-            <p class="item-title">Session start → first interaction time</p>
-            <p class="item-desc">How long does the average new session take to register its first click? Filter by device type and acquisition source. A spike on mobile or paid traffic confirms the cookie wall hypothesis.</p>
-          </div>
-        </div>
-        <div class="item-list-item">
-          <span class="item-num">B</span>
-          <div>
-            <p class="item-title">PLP add-to-cart rate by device</p>
-            <p class="item-desc">Is the desktop add-to-cart rate significantly higher than mobile? A large gap is the fingerprint of a hover-dependent UI pattern. If mobile rate is within 20% of desktop, the finding is weaker than assumed.</p>
-          </div>
-        </div>
-        <div class="item-list-item">
-          <span class="item-num">C</span>
-          <div>
-            <p class="item-title">Cart panel → checkout conversion</p>
-            <p class="item-desc">What percentage of users who open the cart side panel proceed to the checkout form? How many drop off at the intermediate cart page? A high drop rate at that step validates the 3-click hypothesis directly.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="quote-block" style="margin-top: 28px;">
-        <p>I'd love to see where the data agrees — and where it surprises me.</p>
-      </div>
-    </div>
-
-    <!-- CTA -->
     <div class="case-cta">
       <h2>Want to talk through the findings?</h2>
       <p>I find the problem, frame the impact, and ship the fix.</p>
-      <a href="contact.html" class="btn">Get in touch <svg class="arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="../contact.html" class="btn">Get in touch <svg class="arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
 
   </div>
