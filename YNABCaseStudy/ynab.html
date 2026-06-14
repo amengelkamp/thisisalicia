@@ -7,21 +7,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
   <nav class="nav-fixed">
     <div class="nav-pill">
-      <a href="index.html">About</a>
-      <a href="work.html" class="active"><span class="work-dot"></span>Work</a>
-      <a href="contact.html">Contact</a>
+      <a href="../index.html">About</a>
+      <a href="../work.html" class="active"><span class="work-dot"></span>Work</a>
+      <a href="../contact.html">Contact</a>
     </div>
   </nav>
 
   <div class="case-layout">
 
-    <a href="work.html" class="case-back">
+    <a href="../work.html" class="case-back">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Back to Work
     </a>
@@ -143,7 +143,7 @@
       <p class="case-body" style="margin-bottom: 20px;">An interactive prototype built in plain HTML and CSS — no framework. Click through the full onboarding flow.</p>
 
       <div class="mockup-embed">
-        <iframe src="../ynabAmazonFeature/index.html" title="YNAB Amazon Enrichment Mockup"></iframe>
+        <iframe src="../../ynabAmazonFeature/index.html" title="YNAB Amazon Enrichment Mockup"></iframe>
       </div>
     </div>
 
@@ -153,34 +153,34 @@
       <h2 class="case-heading">The decisions behind each screen.</h2>
 
       <div class="screen-item">
-        <img src="gallery/ynab-screenshot.png" alt="Announcement modal">
+        <img src="../gallery/ynab-screenshot.png" alt="Announcement modal">
         <p class="screen-num">Screen 1 — Announcement Modal</p>
         <p class="screen-desc">The modal triggers on first login after launch. Headline is "Give your Amazon transactions a name." — not "Connect your email." The benefit leads. The mechanism follows. Dismiss is always available; no forced opt-in. The user has to understand and see the benefit instead of forcing them into the feature.</p>
       </div>
 
       <div class="screen-item">
-        <img src="gallery/screen2.png" alt="Email provider selection">
+        <img src="../gallery/screen2.png" alt="Email provider selection">
         <p class="screen-num">Screen 2 — Email Connect</p>
         <p class="screen-title">Earn the trust before asking for access.</p>
         <p class="screen-desc">The OAuth screen explains exactly what YNAB reads (Amazon confirmation emails only), what it never reads (everything else), and why. We make it visible that we value their privacy.</p>
       </div>
 
       <div class="screen-item">
-        <img src="gallery/screen3.png" alt="Enriched transaction list">
+        <img src="../gallery/screen3.png" alt="Enriched transaction list">
         <p class="screen-num">Screen 3 — Enriched Transaction List</p>
         <p class="screen-title">Show the value in context, not in isolation.</p>
         <p class="screen-desc">Enriched transactions appear highlighted in the normal transaction list — same view users already know. The product name is visible in the memo column immediately, no extra step needed to see the enrichment.</p>
       </div>
 
       <div class="screen-item">
-        <img src="gallery/screen4.png" alt="Transaction detail modal">
+        <img src="../gallery/screen4.png" alt="Transaction detail modal">
         <p class="screen-num">Screen 4 — Transaction Detail</p>
         <p class="screen-title">Suggestions, not decisions.</p>
         <p class="screen-desc">The memo field shows the product name in a half-dark suggestion style — visually distinct from confirmed text. Category is AI-suggested with a confidence indicator. One click to confirm, one click to change. Nothing is ever applied without user intent.</p>
       </div>
 
       <div class="screen-item">
-        <img src="gallery/screen5.png" alt="Ambiguous match modal">
+        <img src="../gallery/screen5.png" alt="Ambiguous match modal">
         <p class="screen-num">Screen 5 — Ambiguous Match</p>
         <p class="screen-title">When confidence is low, say so.</p>
         <p class="screen-desc">If two orders match the same transaction by amount and date, we surface both and ask. "We found 2 possible orders — which is it?" The user picks. We learn. No silent wrong guess.</p>

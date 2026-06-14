@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <style>
     /* Spotify green + bolder typography for this page */
     .case-section-label {
@@ -33,15 +33,15 @@
 
   <nav class="nav-fixed">
     <div class="nav-pill">
-      <a href="index.html">About</a>
-      <a href="work.html" class="active"><span class="work-dot"></span>Work</a>
-      <a href="contact.html">Contact</a>
+      <a href="../index.html">About</a>
+      <a href="../work.html" class="active"><span class="work-dot"></span>Work</a>
+      <a href="../contact.html">Contact</a>
     </div>
   </nav>
 
   <div class="case-layout">
 
-    <a href="work.html" class="case-back">
+    <a href="../work.html" class="case-back">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L6 3M2 7L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Back to Work
     </a>
@@ -54,7 +54,16 @@
     </div>
 
 
-    <!-- 1b. Timeline -->
+    <!-- 1b. Context -->
+    <div>
+      <p class="case-section-label">Context</p>
+      <h2 class="case-heading">Why I have an opinion on this.</h2>
+      <p class="case-body">I've been a Spotify Premium user for years. Daily listener, regular concert-goer — the kind of user Spotify's own data calls a superfan. I've missed shows from artists I listen to obsessively because I found out too late. I've discovered a tour only after tickets sold out. I've opened Spotify the day after a concert and seen nothing that acknowledged I was there.</p>
+      <p class="case-body">That's not a niche problem. Spotify's own stat — <em>"over half of our listeners are unaware of when their favourite artists are in town"</em> — describes me. I built this prototype because I think the data Spotify already has should solve it, and the product logic to do so is not that complicated.</p>
+      <p class="case-body">My background is payment processing — owning the backend layer where user intent either converts or abandons. That gives me a specific lens on conversion friction. Concert discovery has the same shape: a user who would buy a ticket doesn't, because the right signal didn't reach them at the right moment. This case study is about closing that gap.</p>
+    </div>
+
+    <!-- 1c. Timeline -->
     <div>
       <p class="case-section-label">Previously on Spotify Concerts</p>
       <h2 class="case-heading">Four years of iteration.</h2>
@@ -164,7 +173,7 @@
       <p class="case-body" style="margin-bottom: 20px;">An interactive prototype built in plain HTML and CSS — no framework, modelled on Spotify's German locale. Watch the home screen concerts row animate in, adjust the radius filter, see the "Only European Show" exception trigger at 150 km, tap into a festival detail page, and go through the two-step notification opt-in.</p>
 
       <div class="mockup-embed" style="height:900px;">
-        <iframe src="../spotifyConcertsFeature/index.html" title="Spotify Concerts Feature Mockup"></iframe>
+        <iframe src="../../spotifyConcertsFeature/index.html" title="Spotify Concerts Feature Mockup"></iframe>
       </div>
     </div>
 
