@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /ZooroyalCaseStudy/
+Disallow: /ynabAmazonFeature/
+Disallow: /videos/
+Disallow: /gallery/
