@@ -65,179 +65,174 @@
     .finding-side-label.after  { color: #17a349; }
 
     /* ── iPhone 17 phone frame ── */
-    /* iPhone 17: ~390×844pt screen → ratio 1:2.165              */
-    /* Frame outer: 216px wide. Screen inner: 196px × 424px      */
+    /* iPhone 17: 393×852pt screen → ratio 1:2.168               */
+    /* Frame outer: 280px wide. Screen inner: 256px × 554px      */
     .phone-frame {
       background: #141414;
-      border-radius: 40px;
-      padding: 14px 10px 10px;
-      width: 216px;
+      border-radius: 52px;
+      padding: 10px 12px 14px;
+      width: 280px;
       flex-shrink: 0;
       box-shadow:
         0 0 0 1px #333,
-        0 16px 40px rgba(0,0,0,0.30),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+        0 20px 50px rgba(0,0,0,0.32),
+        inset 0 1px 0 rgba(255,255,255,0.07);
       position: relative;
     }
     /* Side button */
     .phone-frame::before {
       content: '';
       position: absolute;
-      right: -3px; top: 80px;
-      width: 3px; height: 40px;
+      right: -3px; top: 104px;
+      width: 3px; height: 52px;
       background: #2a2a2a;
       border-radius: 0 2px 2px 0;
     }
-    /* Dynamic Island */
-    .phone-island {
-      width: 64px; height: 9px;
-      background: #0a0a0a;
-      border-radius: 100px;
-      margin: 0 auto 6px;
-    }
     .phone-screen {
       background: white;
-      border-radius: 32px;
+      border-radius: 42px;
       overflow-y: auto;
-      height: 424px;
+      overflow-x: hidden;
+      height: 554px;
+      position: relative;
       scrollbar-width: none;
     }
     .phone-screen::-webkit-scrollbar { display: none; }
 
     /* ── ZooRoyal mini UI tokens ── */
     .zr-nav {
-      background: white; padding: 7px 9px;
+      background: white; padding: 9px 12px;
       display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid #eee;
       position: sticky; top: 0; z-index: 10;
     }
-    .zr-logo { font-size: 10px; font-weight: 900; color: var(--zr); }
-    .zr-ham  { display: flex; flex-direction: column; gap: 2.5px; }
-    .zr-ham span { display: block; width: 12px; height: 1.5px; background: #444; border-radius: 1px; }
-    .zr-icons { display: flex; gap: 7px; }
-    .zr-ic { width: 13px; height: 13px; background: #eee; border-radius: 50%; }
+    .zr-logo { font-size: 13px; font-weight: 900; color: var(--zr); }
+    .zr-ham  { display: flex; flex-direction: column; gap: 3px; }
+    .zr-ham span { display: block; width: 16px; height: 2px; background: #444; border-radius: 1px; }
+    .zr-icons { display: flex; gap: 9px; }
+    .zr-ic { width: 17px; height: 17px; background: #eee; border-radius: 50%; }
 
     .zr-search {
-      background: #f4f4f4; border-radius: 6px;
-      margin: 6px 9px; padding: 5px 8px;
-      font-size: 8px; color: #bbb;
-      display: flex; align-items: center; gap: 5px;
+      background: #f4f4f4; border-radius: 7px;
+      margin: 8px 12px; padding: 6px 10px;
+      font-size: 10px; color: #bbb;
+      display: flex; align-items: center; gap: 6px;
     }
-    .zr-search-o { width: 8px; height: 8px; border: 1.5px solid #ccc; border-radius: 50%; flex-shrink: 0; }
+    .zr-search-o { width: 10px; height: 10px; border: 1.5px solid #ccc; border-radius: 50%; flex-shrink: 0; }
 
     /* hero brand banner */
     .zr-hero-brand {
-      background: var(--zr); padding: 13px 10px; overflow: hidden;
+      background: var(--zr); padding: 17px 13px; overflow: hidden;
     }
-    .zr-hero-brand-txt { font-size: 11px; font-weight: 800; color: white; line-height: 1.3; }
+    .zr-hero-brand-txt { font-size: 14px; font-weight: 800; color: white; line-height: 1.3; }
     .zr-hero-rainbow {
-      height: 4px; margin-top: 8px; border-radius: 2px; opacity: 0.75;
+      height: 5px; margin-top: 10px; border-radius: 2px; opacity: 0.75;
       background: linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
     }
 
     /* improved hero */
-    .zr-hero-imp { background: #f2f2f2; padding: 10px; }
+    .zr-hero-imp { background: #f2f2f2; padding: 13px; }
     .zr-pill {
       display: inline-block; background: var(--zr); color: white;
-      font-size: 7px; font-weight: 700; padding: 3px 7px;
-      border-radius: 100px; margin-bottom: 5px; letter-spacing: 0.04em;
+      font-size: 9px; font-weight: 700; padding: 4px 9px;
+      border-radius: 100px; margin-bottom: 6px; letter-spacing: 0.04em;
     }
-    .zr-hero-imp-h { font-size: 10px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin-bottom: 8px; }
-    .zr-cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .zr-hero-imp-h { font-size: 13px; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin-bottom: 10px; }
+    .zr-cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
     .zr-cat-tile {
       background: white; border: 1px solid #ddd;
-      border-radius: 6px; padding: 8px 5px;
-      text-align: center; font-size: 7.5px; font-weight: 600; color: #333;
+      border-radius: 8px; padding: 10px 6px;
+      text-align: center; font-size: 10px; font-weight: 600; color: #333;
     }
 
     /* nav with sticky category row */
     .zr-nav-cats { background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
-    .zr-nav-top  { padding: 7px 9px; display: flex; align-items: center; justify-content: space-between; }
+    .zr-nav-top  { padding: 9px 12px; display: flex; align-items: center; justify-content: space-between; }
     .zr-cat-row  {
       display: flex; overflow-x: auto; scrollbar-width: none;
-      border-top: 1px solid #f0f0f0; padding: 4px 9px;
+      border-top: 1px solid #f0f0f0; padding: 5px 12px;
     }
     .zr-cat-row::-webkit-scrollbar { display: none; }
     .zr-cat-item {
-      font-size: 8px; font-weight: 600; color: #888;
-      padding: 2px 8px 4px; white-space: nowrap; flex-shrink: 0;
+      font-size: 10px; font-weight: 600; color: #888;
+      padding: 3px 10px 5px; white-space: nowrap; flex-shrink: 0;
       border-bottom: 2px solid transparent;
     }
     .zr-cat-item.sel { color: var(--zr); border-bottom-color: var(--zr); }
 
     /* offer section */
-    .zr-offer-wrap { padding: 8px; }
-    .zr-offer-banner { background: var(--zr); border-radius: 10px; padding: 10px; }
-    .zr-pct  { font-size: 26px; font-weight: 900; color: var(--zry); line-height: 1; }
-    .zr-word { font-size: 9px;  font-weight: 800; color: var(--zry); letter-spacing: 0.05em; }
-    .zr-fine { font-size: 7.5px; color: rgba(255,255,255,0.82); margin-top: 4px; line-height: 1.4; }
+    .zr-offer-wrap { padding: 10px; }
+    .zr-offer-banner { background: var(--zr); border-radius: 13px; padding: 13px; }
+    .zr-pct  { font-size: 34px; font-weight: 900; color: var(--zry); line-height: 1; }
+    .zr-word { font-size: 12px; font-weight: 800; color: var(--zry); letter-spacing: 0.05em; }
+    .zr-fine { font-size: 10px; color: rgba(255,255,255,0.82); margin-top: 5px; line-height: 1.4; }
 
-    .zr-offer-title { font-size: 11px; font-weight: 700; color: #1a1a1a; margin-top: 8px; line-height: 1.4; }
-    .zr-gate { font-size: 8.5px; color: #aaa; font-style: italic; margin-top: 5px; line-height: 1.45; }
+    .zr-offer-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-top: 10px; line-height: 1.4; }
+    .zr-gate { font-size: 11px; color: #aaa; font-style: italic; margin-top: 6px; line-height: 1.45; }
     .zr-code {
       display: flex; align-items: center; justify-content: space-between;
       background: #e8f5f8; border: 1.5px solid var(--zr);
-      border-radius: 6px; padding: 5px 8px; margin-top: 6px;
-      font-size: 9px; font-weight: 800; color: var(--zr); letter-spacing: 0.06em;
+      border-radius: 8px; padding: 6px 10px; margin-top: 8px;
+      font-size: 12px; font-weight: 800; color: var(--zr); letter-spacing: 0.06em;
     }
-    .zr-copy { font-size: 8px; opacity: 0.55; }
-    .zr-note { font-size: 7.5px; color: #aaa; margin-top: 4px; font-style: italic; }
-    .zr-cta  { display: block; margin-top: 7px; padding: 7px; border-radius: 7px; font-size: 8.5px; font-weight: 700; text-align: center; }
+    .zr-copy { font-size: 10px; opacity: 0.55; }
+    .zr-note { font-size: 10px; color: #aaa; margin-top: 5px; font-style: italic; }
+    .zr-cta  { display: block; margin-top: 9px; padding: 9px; border-radius: 9px; font-size: 11px; font-weight: 700; text-align: center; }
     .zr-cta.off { background: #eee; color: #bbb; }
     .zr-cta.on  { background: var(--zr); color: white; }
 
     /* carousel dots */
-    .zr-dots { display: flex; justify-content: center; gap: 4px; padding: 8px 0; }
-    .zr-dot  { width: 5px; height: 5px; border-radius: 50%; background: #ddd; }
-    .zr-dot.on { background: var(--zr); width: 14px; border-radius: 3px; }
+    .zr-dots { display: flex; justify-content: center; gap: 5px; padding: 10px 0; }
+    .zr-dot  { width: 6px; height: 6px; border-radius: 50%; background: #ddd; }
+    .zr-dot.on { background: var(--zr); width: 18px; border-radius: 3px; }
 
     /* stacked offer cards */
-    .zr-stack { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .zr-stack { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
     .zr-card  {
-      border-radius: 9px; padding: 9px 11px;
+      border-radius: 12px; padding: 12px 14px;
       display: flex; align-items: center; justify-content: space-between;
     }
     .zr-card.c1 { background: var(--zr); }
     .zr-card.c2 { background: #5b3a90; }
     .zr-card.c3 { background: #17a349; }
-    .zr-card-pct { font-size: 16px; font-weight: 900; color: var(--zry); line-height: 1; }
+    .zr-card-pct { font-size: 21px; font-weight: 900; color: var(--zry); line-height: 1; }
     .zr-card.c2 .zr-card-pct { color: #f0d060; }
     .zr-card.c3 .zr-card-pct { color: white; }
-    .zr-card-lbl { font-size: 7.5px; color: rgba(255,255,255,0.85); line-height: 1.3; margin-top: 2px; }
+    .zr-card-lbl { font-size: 10px; color: rgba(255,255,255,0.85); line-height: 1.3; margin-top: 3px; }
     .zr-card-btn {
-      font-size: 7.5px; font-weight: 700; color: white;
-      background: rgba(255,255,255,0.22); padding: 3px 8px; border-radius: 100px; flex-shrink: 0;
+      font-size: 10px; font-weight: 700; color: white;
+      background: rgba(255,255,255,0.22); padding: 4px 10px; border-radius: 100px; flex-shrink: 0;
     }
 
     /* product grid */
-    .zr-products { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 8px; }
-    .zr-prod { background: #f5f5f5; border-radius: 8px; padding: 7px; }
+    .zr-products { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 10px; }
+    .zr-prod { background: #f5f5f5; border-radius: 10px; padding: 9px; }
     .zr-prod-img {
       width: 100%; aspect-ratio: 1; background: #e0e0e0;
-      border-radius: 5px; margin-bottom: 5px;
+      border-radius: 6px; margin-bottom: 6px;
       display: flex; align-items: center; justify-content: center;
     }
-    .zr-prod-img span { width: 50%; height: 50%; background: #c4c4c4; border-radius: 3px; display: block; }
-    .zr-prod-name  { font-size: 7.5px; font-weight: 600; color: #333; line-height: 1.3; margin-bottom: 2px; }
-    .zr-prod-price { font-size: 9px; font-weight: 800; color: var(--zr); }
+    .zr-prod-img span { width: 50%; height: 50%; background: #c4c4c4; border-radius: 4px; display: block; }
+    .zr-prod-name  { font-size: 10px; font-weight: 600; color: #333; line-height: 1.3; margin-bottom: 3px; }
+    .zr-prod-price { font-size: 12px; font-weight: 800; color: var(--zr); }
 
     /* brand-only placeholder blocks */
     .zr-placeholder {
-      background: #ebebeb; border-radius: 7px; margin: 4px 8px;
-      padding: 18px 10px;
+      background: #ebebeb; border-radius: 9px; margin: 5px 10px;
+      padding: 23px 13px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 7.5px; color: #bbb; font-style: italic;
+      font-size: 10px; color: #bbb; font-style: italic;
     }
 
     /* callout note inside phone */
     .zr-callout {
       background: #f0f0f0; border-left: 2px solid #999;
-      margin: 4px 8px; padding: 5px 7px; border-radius: 0 5px 5px 0;
-      font-size: 7px; color: #666; line-height: 1.4;
+      margin: 5px 10px; padding: 6px 9px; border-radius: 0 6px 6px 0;
+      font-size: 9px; color: #666; line-height: 1.4;
     }
 
     /* ── Section label sublabel ── */
-    .finding-slabel { font-size: 8px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 9px 2px; }
+    .finding-slabel { font-size: 10px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; padding: 8px 12px 3px; }
 
     /* ── Metric strip ── */
     .finding-metric {
@@ -291,23 +286,51 @@
       <h1 class="case-hero-title">ZooRoyal — a UX Analysis.</h1>
       <p class="case-hero-sub">Five friction points on the start page, benchmarked against Zalando, AboutYou, IKEA, and Decathlon. One prioritised fix order.</p>
 
-      <div class="before-after">
-        <div>
-          <p class="ba-label">Before</p>
-          <div class="ba-card">
-            <div class="zr-ba-badge">12% RABATT</div>
-            <p class="zr-ba-sub">auf Trockenfutter · ab 69€</p>
-            <div class="zr-ba-gate">Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten.</div>
-            <div class="zr-ba-btn blocked">Jetzt Rabatt sichern</div>
+      <div class="finding-split" style="margin-top: 32px;">
+        <div class="finding-col">
+          <p class="finding-side-label before">Current</p>
+          <div class="phone-frame">
+            <div class="phone-screen" style="background: url('startpage-before.png') no-repeat top center / cover;"></div>
           </div>
         </div>
-        <div>
-          <p class="ba-label">After</p>
-          <div class="ba-card">
-            <div class="zr-ba-badge">12% RABATT</div>
-            <p class="zr-ba-sub">auf Trockenfutter · ab 69€</p>
-            <div class="zr-ba-code">ZR12SAVE <span style="opacity:0.45; font-size:13px;">⧉</span></div>
-            <div class="zr-ba-btn go">Jetzt entdecken →</div>
+        <div class="finding-col">
+          <p class="finding-side-label after">Improved</p>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="zr-nav">
+                <div class="zr-ham"><span></span><span></span><span></span></div>
+                <div class="zr-logo">ZooRoyal+</div>
+                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
+              </div>
+              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
+              <div class="zr-hero-imp">
+                <div class="zr-pill">3 Angebote aktiv diese Woche</div>
+                <div class="zr-hero-imp-h">Alles für dein Tier.<br>Direkt zum richtigen Bereich.</div>
+                <div class="zr-cat-grid">
+                  <div class="zr-cat-tile">Hunde</div>
+                  <div class="zr-cat-tile">Katzen</div>
+                  <div class="zr-cat-tile">Kleintiere</div>
+                  <div class="zr-cat-tile">Vögel</div>
+                </div>
+              </div>
+              <div class="finding-slabel">Aktuelle Angebote</div>
+              <div style="padding:0 10px 10px;">
+                <div style="background:var(--zr); border-radius:12px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+                  <div>
+                    <div style="font-size:21px; font-weight:900; color:var(--zry); line-height:1;">12%</div>
+                    <div style="font-size:10px; color:rgba(255,255,255,0.85); margin-top:3px;">Trockenfutter · ab 69€</div>
+                  </div>
+                  <div style="font-size:10px; font-weight:700; color:white; background:rgba(255,255,255,0.22); padding:5px 10px; border-radius:100px;">Entdecken</div>
+                </div>
+              </div>
+              <div class="finding-slabel">Bestseller</div>
+              <div class="zr-products" style="padding:4px 10px 10px;">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -352,33 +375,13 @@
         <div class="finding-col">
           <p class="finding-side-label before">Current</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
-            <div class="phone-screen">
-              <div class="zr-nav">
-                <div class="zr-ham"><span></span><span></span><span></span></div>
-                <div class="zr-logo">ZooRoyal+</div>
-                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
-              </div>
-              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand">
-                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
-                <div class="zr-hero-rainbow"></div>
-              </div>
-              <div class="zr-dots" style="padding:6px 0 4px;">
-                <div class="zr-dot on"></div><div class="zr-dot"></div><div class="zr-dot"></div><div class="zr-dot"></div>
-              </div>
-              <div class="zr-placeholder">Marken-Banner · kein Produkt</div>
-              <div class="zr-placeholder">Marken-Banner · kein Produkt</div>
-              <div class="zr-placeholder">Marken-Banner · kein Produkt</div>
-              <div class="zr-callout">Kein Produkt. Keine Kategorie. Kein Grund zu bleiben.</div>
-            </div>
+            <div class="phone-screen" style="background: url('startpage-before.png') no-repeat top center / cover;"></div>
           </div>
         </div>
 
         <div class="finding-col">
           <p class="finding-side-label after">Improved</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
             <div class="phone-screen">
               <div class="zr-nav">
                 <div class="zr-ham"><span></span><span></span><span></span></div>
@@ -397,19 +400,21 @@
                 </div>
               </div>
               <div class="finding-slabel">Aktuelle Angebote</div>
-              <div style="padding:0 8px 8px;">
-                <div style="background:var(--zr); border-radius:9px; padding:9px 11px; display:flex; align-items:center; justify-content:space-between;">
+              <div style="padding:0 10px 10px;">
+                <div style="background:var(--zr); border-radius:12px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
                   <div>
-                    <div style="font-size:16px; font-weight:900; color:var(--zry); line-height:1;">12%</div>
-                    <div style="font-size:7.5px; color:rgba(255,255,255,0.85); margin-top:2px;">Trockenfutter · ab 69€</div>
+                    <div style="font-size:21px; font-weight:900; color:var(--zry); line-height:1;">12%</div>
+                    <div style="font-size:10px; color:rgba(255,255,255,0.85); margin-top:3px;">Trockenfutter · ab 69€</div>
                   </div>
-                  <div style="font-size:7.5px; font-weight:700; color:white; background:rgba(255,255,255,0.22); padding:3px 8px; border-radius:100px;">Entdecken</div>
+                  <div style="font-size:10px; font-weight:700; color:white; background:rgba(255,255,255,0.22); padding:5px 10px; border-radius:100px;">Entdecken</div>
                 </div>
               </div>
               <div class="finding-slabel">Bestseller</div>
-              <div class="zr-products" style="padding:4px 8px 8px;">
+              <div class="zr-products" style="padding:4px 10px 10px;">
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
               </div>
             </div>
           </div>
@@ -431,39 +436,13 @@
         <div class="finding-col">
           <p class="finding-side-label before">Current</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
-            <div class="phone-screen">
-              <div class="zr-nav">
-                <div class="zr-ham"><span></span><span></span><span></span></div>
-                <div class="zr-logo">ZooRoyal+</div>
-                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
-              </div>
-              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand" style="padding:8px 10px;">
-                <div class="zr-hero-brand-txt" style="font-size:9px;">ZooRoyal ist tierisch bunt</div>
-                <div class="zr-hero-rainbow"></div>
-              </div>
-              <div class="zr-offer-wrap">
-                <div class="zr-offer-banner">
-                  <div class="zr-pct">12%</div>
-                  <div class="zr-word">RABATT</div>
-                  <div class="zr-fine">Auf Trockenfutter · Hunde &amp; Katzen · ab 69€</div>
-                </div>
-                <div class="zr-offer-title">Spare 12% ab 69€ auf Trockenfutter</div>
-                <div class="zr-gate">Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten.</div>
-                <div class="zr-cta off">Jetzt Rabatt sichern</div>
-              </div>
-              <div class="zr-dots">
-                <div class="zr-dot"></div><div class="zr-dot on"></div><div class="zr-dot"></div><div class="zr-dot"></div>
-              </div>
-            </div>
+            <div class="phone-screen" style="background: url('startpage-discount.png') no-repeat top center / cover;"></div>
           </div>
         </div>
 
         <div class="finding-col">
           <p class="finding-side-label after">Improved</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
             <div class="phone-screen">
               <div class="zr-nav">
                 <div class="zr-ham"><span></span><span></span><span></span></div>
@@ -471,8 +450,8 @@
                 <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
               </div>
               <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand" style="padding:8px 10px;">
-                <div class="zr-hero-brand-txt" style="font-size:9px;">ZooRoyal ist tierisch bunt</div>
+              <div class="zr-hero-brand" style="padding:10px 13px;">
+                <div class="zr-hero-brand-txt" style="font-size:12px;">ZooRoyal ist tierisch bunt</div>
                 <div class="zr-hero-rainbow"></div>
               </div>
               <div class="zr-offer-wrap">
@@ -486,8 +465,12 @@
                 <div class="zr-note">Coupon wird im Checkout automatisch angewendet.</div>
                 <div class="zr-cta on">Jetzt entdecken →</div>
               </div>
-              <div class="zr-dots">
-                <div class="zr-dot"></div><div class="zr-dot on"></div><div class="zr-dot"></div><div class="zr-dot"></div>
+              <div class="finding-slabel">Empfehlung für dich</div>
+              <div class="zr-products">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
               </div>
             </div>
           </div>
@@ -512,29 +495,13 @@
         <div class="finding-col">
           <p class="finding-side-label before">Current</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
-            <div class="phone-screen">
-              <div class="zr-nav">
-                <div class="zr-ham"><span></span><span></span><span></span></div>
-                <div class="zr-logo">ZooRoyal+</div>
-                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
-              </div>
-              <div class="zr-callout">Hamburger-only nav — categories invisible until tapped</div>
-              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand">
-                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
-                <div class="zr-hero-rainbow"></div>
-              </div>
-              <div class="zr-placeholder">Hunde, Katzen, Kleintiere… nicht sichtbar</div>
-              <div class="zr-placeholder">Produkte erst nach Scroll + Tap sichtbar</div>
-            </div>
+            <div class="phone-screen" style="background: url('startpage-before.png') no-repeat top center / cover;"></div>
           </div>
         </div>
 
         <div class="finding-col">
           <p class="finding-side-label after">Improved</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
             <div class="phone-screen">
               <div class="zr-nav-cats">
                 <div class="zr-nav-top">
@@ -556,9 +523,11 @@
                 <div class="zr-hero-rainbow"></div>
               </div>
               <div class="finding-slabel">Hunde · Empfehlungen für dich</div>
-              <div class="zr-products" style="padding:4px 8px 8px;">
+              <div class="zr-products" style="padding:4px 10px 10px;">
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
               </div>
             </div>
           </div>
@@ -579,36 +548,13 @@
         <div class="finding-col">
           <p class="finding-side-label before">Current</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
-            <div class="phone-screen">
-              <div class="zr-nav">
-                <div class="zr-ham"><span></span><span></span><span></span></div>
-                <div class="zr-logo">ZooRoyal+</div>
-                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
-              </div>
-              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-offer-wrap">
-                <div class="zr-offer-banner">
-                  <div class="zr-pct">12%</div>
-                  <div class="zr-word">RABATT</div>
-                  <div class="zr-fine">Auf Spielzeug &amp; Snacks · Hund &amp; Katze</div>
-                </div>
-                <div class="zr-offer-title">Als Vorbereitung für die WM</div>
-                <div class="zr-gate">Registrieren oder anmelden, um Coupon zu erhalten.</div>
-                <div class="zr-cta off">Jetzt Rabatt sichern</div>
-              </div>
-              <div class="zr-dots">
-                <div class="zr-dot"></div><div class="zr-dot"></div><div class="zr-dot on"></div><div class="zr-dot"></div>
-              </div>
-              <div class="zr-callout">Slide 3 von 4 — die meisten User sehen nur Slide 1</div>
-            </div>
+            <div class="phone-screen" style="background: url('startpage-carousel.png') no-repeat top center / cover;"></div>
           </div>
         </div>
 
         <div class="finding-col">
           <p class="finding-side-label after">Improved</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
             <div class="phone-screen">
               <div class="zr-nav">
                 <div class="zr-ham"><span></span><span></span><span></span></div>
@@ -616,8 +562,8 @@
                 <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
               </div>
               <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand" style="padding:8px 10px;">
-                <div class="zr-hero-brand-txt" style="font-size:9px;">ZooRoyal ist tierisch bunt</div>
+              <div class="zr-hero-brand" style="padding:10px 13px;">
+                <div class="zr-hero-brand-txt" style="font-size:12px;">ZooRoyal ist tierisch bunt</div>
                 <div class="zr-hero-rainbow"></div>
               </div>
               <div class="finding-slabel">Alle Angebote dieser Woche</div>
@@ -634,6 +580,13 @@
                   <div><div class="zr-card-pct">5%</div><div class="zr-card-lbl">Alle Eigenmarken</div></div>
                   <div class="zr-card-btn">Entdecken</div>
                 </div>
+              </div>
+              <div class="finding-slabel">Bestseller</div>
+              <div class="zr-products">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
               </div>
             </div>
           </div>
@@ -654,35 +607,13 @@
         <div class="finding-col">
           <p class="finding-side-label before">Current</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
-            <div class="phone-screen">
-              <div class="zr-nav">
-                <div class="zr-ham"><span></span><span></span><span></span></div>
-                <div class="zr-logo">ZooRoyal+</div>
-                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
-              </div>
-              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand">
-                <div class="zr-hero-brand-txt">ZooRoyal ist tierisch bunt</div>
-                <div class="zr-hero-rainbow"></div>
-              </div>
-              <div style="padding:8px; display:flex; flex-direction:column; gap:5px;">
-                <div style="background:var(--zr); border-radius:8px; padding:12px; text-align:center;">
-                  <div style="font-size:20px; font-weight:900; color:var(--zry);">12%</div>
-                  <div style="font-size:8px; font-weight:800; color:var(--zry);">RABATT</div>
-                </div>
-                <div class="zr-placeholder">Kein Produkt sichtbar</div>
-                <div class="zr-placeholder">Kein Produkt sichtbar</div>
-              </div>
-              <div class="zr-callout">Kein einziges Produkt auf der gesamten Startseite sichtbar</div>
-            </div>
+            <div class="phone-screen" style="background: url('startpage-before.png') no-repeat top center / cover;"></div>
           </div>
         </div>
 
         <div class="finding-col">
           <p class="finding-side-label after">Improved</p>
           <div class="phone-frame">
-            <div class="phone-island"></div>
             <div class="phone-screen">
               <div class="zr-nav">
                 <div class="zr-ham"><span></span><span></span><span></span></div>
@@ -690,7 +621,7 @@
                 <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
               </div>
               <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-imp" style="padding:8px 10px 6px;">
+              <div class="zr-hero-imp" style="padding:10px 13px 8px;">
                 <div class="zr-pill">Bestseller diese Woche</div>
               </div>
               <div class="finding-slabel">Top-Produkte für Hunde</div>
@@ -699,6 +630,11 @@
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
                 <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
+              </div>
+              <div class="finding-slabel">Katzen · Empfehlung</div>
+              <div class="zr-products" style="padding:4px 10px 10px;">
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Whiskas Adult</div><div class="zr-prod-price">€8,99</div></div>
+                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Felix Multipack</div><div class="zr-prod-price">€14,99</div></div>
               </div>
             </div>
           </div>
