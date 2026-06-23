@@ -1,4 +1,4 @@
-# ZooRoyal — a UX Analysis.
+# ZooRoyal — Improving Homepage Conversion
 
 Founded in 2008, ZooRoyal has grown into one of Germany’s leading online pet retailers. With a catalog of approximately 12,000 products and more than 224,000 customer reviews on Trusted Shops, maintaining an average rating of 4.7/5 stars, the brand demonstrates strong customer loyalty and satisfaction.
 
