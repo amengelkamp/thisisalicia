@@ -223,6 +223,9 @@
     /* product grid */
     .zr-products { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 10px; }
     .zr-prod { background: #f5f5f5; border-radius: 10px; padding: 9px; }
+    .zr-prod-bottom { display:flex; align-items:center; justify-content:space-between; margin-top:4px; }
+    .zr-prod-cart { width:26px; height:26px; flex-shrink:0; background:var(--zr); border:none; border-radius:7px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+    .zr-prod-cart svg { width:14px; height:14px; fill:none; stroke:white; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
     .zr-prod-img {
       width: 100%; aspect-ratio: 1; background: #e0e0e0;
       border-radius: 6px; margin-bottom: 6px;
@@ -343,18 +346,37 @@
                   </div>
                 </div>
               </div>
-              <!-- top 2 products only -->
               <div class="finding-slabel">Top-Produkte für Hunde</div>
               <div class="zr-products" style="padding:4px 10px 10px;">
                 <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:1;"><span></span></div>
+                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-royalcanin.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
                   <div class="zr-prod-name">Royal Canin Adult</div>
-                  <div class="zr-prod-price">€24,99</div>
+                  <div class="zr-prod-bottom"><div class="zr-prod-price">€24,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
                 </div>
                 <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:1;"><span></span></div>
-                  <div class="zr-prod-name">Purina Pro Plan</div>
-                  <div class="zr-prod-price">€29,99</div>
+                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-purina.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                  <div class="zr-prod-name">Purina Pro Plan Adult</div>
+                  <div class="zr-prod-bottom"><div class="zr-prod-price">€29,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                </div>
+                <div class="zr-prod">
+                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-happydog.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                  <div class="zr-prod-name">Happy Dog NaturCroq</div>
+                  <div class="zr-prod-bottom"><div class="zr-prod-price">€19,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                </div>
+                <div class="zr-prod">
+                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-pedigree.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                  <div class="zr-prod-name">Pedigree Vital Protection</div>
+                  <div class="zr-prod-bottom"><div class="zr-prod-price">€14,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                </div>
+                <div class="zr-prod">
+                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-r3left.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                  <div class="zr-prod-name">Wolfsblut Wild Duck</div>
+                  <div class="zr-prod-bottom"><div class="zr-prod-price">€22,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                </div>
+                <div class="zr-prod">
+                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-r3right.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                  <div class="zr-prod-name">Bosch Adult</div>
+                  <div class="zr-prod-bottom"><div class="zr-prod-price">€16,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
                 </div>
               </div>
             </div>
