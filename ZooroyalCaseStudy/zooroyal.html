@@ -303,7 +303,9 @@
     <div>
       <p class="case-section-label">Case Study · ZooRoyal</p>
       <h1 class="case-hero-title">ZooRoyal — a UX Analysis.</h1>
-      <p class="case-hero-sub">Five friction points on the start page, benchmarked against Zalando, AboutYou, IKEA, and Decathlon. One prioritised fix order.</p>
+      <p class="case-body">Founded in 2008, ZooRoyal has grown into one of Germany's leading online pet retailers. With a catalog of approximately 12,000 products and more than 224,000 customer reviews on Trusted Shops, maintaining an average rating of 4.7/5 stars, the brand demonstrates strong customer loyalty and satisfaction.</p>
+      <p class="case-body">For many pet owners in Germany, ZooRoyal is a household name—or, as my dog would probably put it, the place where treats come from.</p>
+      <p class="case-body">In this case study, I propose a redesign of the ZooRoyal homepage with a clear objective: to strengthen conversion-focused Call-to-Action (CTA) elements, improve the visibility of promotional offers, and increase the number of users who progress to product detail pages and ultimately reach the checkout. By reducing distractions and surfacing high-intent content more effectively, the redesigned experience aims to better align the homepage with core eCommerce conversion goals.</p>
 
       <div class="finding-split" style="margin-top: 32px;">
         <div class="finding-col">
@@ -385,40 +387,12 @@
       </div>
     </div>
 
-    <!-- 2. Context -->
-    <div>
-      <p class="case-section-label">Context</p>
-      <h2 class="case-heading">Why this read is different.</h2>
-      <p class="case-body">I'm a PO at flaschenpost — Germany's largest on-demand beverage delivery. My domain is invoice creation and payment processing: the layer directly behind a checkout button. When I look at a login gate on a discount offer, I'm not evaluating a UX preference — I'm evaluating a conversion decision at the layer I own.</p>
-      <p class="case-body">This is a public audit benchmarked against four best-practice start pages: Zalando, AboutYou, IKEA, and Decathlon. No internal data. Five clear gaps.</p>
-    </div>
-
-    <!-- 3. Scope -->
-    <div>
-      <p class="case-section-label">Scope</p>
-      <h2 class="case-heading">Where the friction lives.</h2>
-      <p class="case-body">All five findings sit on the start page — before a user has entered the purchase funnel. Fix these and you increase the volume of users who reach product pages and checkout.</p>
-      <div class="funnel-strip">
-        <span class="funnel-node hl">Start Page</span>
-        <span class="funnel-arrow">→</span>
-        <span class="funnel-node">Category</span>
-        <span class="funnel-arrow">→</span>
-        <span class="funnel-node">Product listing</span>
-        <span class="funnel-arrow">→</span>
-        <span class="funnel-node">Add to cart</span>
-        <span class="funnel-arrow">→</span>
-        <span class="funnel-node">Checkout</span>
-        <span class="funnel-arrow">→</span>
-        <span class="funnel-node">Payment</span>
-      </div>
-    </div>
-
     <!-- ── FINDING 1 ── -->
     <div>
       <p class="case-section-label">Finding 1</p>
       <h2 class="case-heading">The hero slot has no conversion purpose.</h2>
       <p class="case-body">The entire above-fold hero is occupied by "ZooRoyal ist tierisch bunt" — a brand/pride banner with a rainbow stripe, no product, no CTA, no category entry point. This is the most valuable real estate on any start page. Every best-practice comparator uses it to deliver value: Zalando shows a live discount, AboutYou shows products, Decathlon shows sport categories. A new ZooRoyal visitor has no signal where to go or why to stay.</p>
-      <p class="case-body"><strong>Fix:</strong> Replace the brand banner with a conversion-oriented hero — category tiles for immediate navigation or a featured offer with a direct CTA.</p>
+      <p class="case-body"><strong>Fix:</strong> Replace the brand banner with a conversion-oriented hero — e.g. a featured offer with a direct CTA.</p>
 
       <div class="finding-split">
         <div class="finding-col">
@@ -491,15 +465,14 @@
         </div>
       </div>
 
-      <div class="finding-metric">Metric: scroll depth to first product section +25%</div>
+      <div class="finding-metric">Measuring if it works by: scroll depth to first product section +25%</div>
     </div>
 
     <!-- ── FINDING 2 ── -->
     <div>
       <p class="case-section-label">Finding 2 — Biggest Gap</p>
       <h2 class="case-heading">The login gate kills offer intent.</h2>
-      <p class="case-body">Every discount on the start page is walled behind account creation. The sequence: user sees "12% RABATT" → interest peaks → taps CTA → reads "Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten." → leaves. The offer creates desire. The wall destroys it before any product is seen.</p>
-      <p class="case-body"><strong>Compare with Zalando:</strong> discount code GER15 is shown directly on the hero with a one-click copy button. No account required. No friction between interest and action.</p>
+      <p class="case-body">Every discount on the start page is walled behind account creation. The sequence: user sees "12% RABATT" → interest peaks → taps CTA → reads "Registrieren oder anmelden, um Coupon im Kundenkonto zu erhalten." → user leaves. The offer creates desire. The wall destroys it before any product is seen.</p>
       <p class="case-body"><strong>Fix:</strong> Show the discount code directly on the page. Move account creation to checkout — it's where high-intent users are most willing to register, not before they've seen a single product.</p>
 
       <div class="finding-split">
@@ -547,18 +520,14 @@
         </div>
       </div>
 
-      <div class="finding-metric">Metric: discount CTA click-through +35% · new user registration at checkout +18%</div>
-
-      <div class="benchmark">
-        <p>Zalando puts code GER15 directly on the hero — copy button, no login. ZooRoyal creates interest then immediately blocks it. That gap is a revenue leak, not a UX preference.</p>
-      </div>
+      <div class="finding-metric">Measuring if it works by: discount CTA click-through +35% · new user registration at checkout +18%</div>
     </div>
 
     <!-- ── FINDING 3 ── -->
     <div>
       <p class="case-section-label">Finding 3</p>
       <h2 class="case-heading">Category navigation is hidden in a hamburger.</h2>
-      <p class="case-body">New visitors have no signal that "Hunde", "Katzen", or "Kleintiere" exist as categories until they tap the hamburger menu. That's one extra cognitive step and one extra click before any orientation is possible. Zalando shows "Bekleidung · Schuhe · Accessoires" as sticky inline tabs directly below the logo — zero clicks, instant orientation on every page.</p>
+      <p class="case-body">New visitors have no signal that "Hunde", "Katzen", or "Kleintiere" exist as categories until they tap the hamburger menu. That's one extra cognitive step and one extra click before any orientation is possible.</p>
       <p class="case-body"><strong>Fix:</strong> A persistent category tab row below the nav bar — visible on every scroll position, zero interaction required to discover it.</p>
 
       <div class="finding-split">
@@ -604,74 +573,15 @@
         </div>
       </div>
 
-      <div class="finding-metric">Metric: homepage → category navigation clicks +40%</div>
-    </div>
-
-    <!-- ── FINDING 4 ── -->
-    <div>
-      <p class="case-section-label">Finding 4</p>
-      <h2 class="case-heading">The carousel buries conversion-critical offers.</h2>
-      <p class="case-body">Three active discount offers sit inside a carousel. Slides 2 and 3 are invisible to anyone who doesn't actively swipe — which is the majority of users. A carousel is a valid pattern for brand or editorial content. It's the wrong pattern for offers that compete for purchase intent.</p>
-      <p class="case-body"><strong>Fix:</strong> Stack all active offers as visible cards below the hero. Every deal is seen on first scroll. No swipe required. The carousel can stay for brand content above — offers move below as a permanent strip.</p>
-
-      <div class="finding-split">
-        <div class="finding-col">
-          <p class="finding-side-label before">Current</p>
-          <div class="phone-frame">
-            <div class="phone-screen" style="background: url('startpage-carousel.png') no-repeat top center / cover;"></div>
-          </div>
-        </div>
-
-        <div class="finding-col">
-          <p class="finding-side-label after">Improved</p>
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="zr-nav">
-                <div class="zr-ham"><span></span><span></span><span></span></div>
-                <div class="zr-logo">ZooRoyal+</div>
-                <div class="zr-icons"><div class="zr-ic"></div><div class="zr-ic"></div><div class="zr-ic"></div></div>
-              </div>
-              <div class="zr-search"><div class="zr-search-o"></div>Suche nach Produkten, Marken…</div>
-              <div class="zr-hero-brand" style="padding:10px 13px;">
-                <div class="zr-hero-brand-txt" style="font-size:12px;">ZooRoyal ist tierisch bunt</div>
-                <div class="zr-hero-rainbow"></div>
-              </div>
-              <div class="finding-slabel">Alle Angebote dieser Woche</div>
-              <div class="zr-stack">
-                <div class="zr-card c1">
-                  <div><div class="zr-card-pct">12%</div><div class="zr-card-lbl">Trockenfutter · ab 69€</div></div>
-                  <div class="zr-card-btn">Entdecken</div>
-                </div>
-                <div class="zr-card c2">
-                  <div><div class="zr-card-pct">12%</div><div class="zr-card-lbl">Spielzeug &amp; Snacks</div></div>
-                  <div class="zr-card-btn">Entdecken</div>
-                </div>
-                <div class="zr-card c3">
-                  <div><div class="zr-card-pct">5%</div><div class="zr-card-lbl">Alle Eigenmarken</div></div>
-                  <div class="zr-card-btn">Entdecken</div>
-                </div>
-              </div>
-              <div class="finding-slabel">Bestseller</div>
-              <div class="zr-products">
-                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Royal Canin Adult</div><div class="zr-prod-price">€24,99</div></div>
-                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Purina Felix</div><div class="zr-prod-price">€12,99</div></div>
-                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Chappi Rind</div><div class="zr-prod-price">€18,49</div></div>
-                <div class="zr-prod"><div class="zr-prod-img"><span></span></div><div class="zr-prod-name">Hill's Science</div><div class="zr-prod-price">€34,99</div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="finding-metric">Metric: non-first-offer interaction rate +60%</div>
+      <div class="finding-metric">Measuring if it works by: homepage → category navigation clicks +40%</div>
     </div>
 
     <!-- ── FINDING 5 ── -->
     <div>
       <p class="case-section-label">Finding 5</p>
       <h2 class="case-heading">No product imagery — just brand and badges.</h2>
-      <p class="case-body">The ZooRoyal start page shows brand banners and illustrated discount badges with no actual products visible. AboutYou, IKEA, and Decathlon all show real product photography above the fold. Without product signals, category intent cannot form — the user has no visual anchor to connect their pet's need to a specific product or category.</p>
-      <p class="case-body"><strong>Fix:</strong> Integrate real product photography into the start page — as a bestseller grid, recently viewed items, or category-specific product rows. Products sell products.</p>
+      <p class="case-body">The ZooRoyal start page shows brand banners and illustrated discount badges with no actual products visible. The user has no visual anchor to connect their pet's need to a specific product or category.</p>
+      <p class="case-body"><strong>Fix:</strong> Integrate real product photography into the start page — as a bestseller grid, recently viewed items, or category-specific product rows.</p>
 
       <div class="finding-split">
         <div class="finding-col">
@@ -711,77 +621,28 @@
         </div>
       </div>
 
-      <div class="finding-metric">Metric: time-on-page +15% · bounce rate −10%</div>
-
-      <div class="benchmark">
-        <p>AboutYou, IKEA, and Decathlon all show real product photography above the fold. Products create intent. Without them, there is nothing to buy.</p>
-      </div>
+      <div class="finding-metric">Measuring if it works by: time-on-page +15% · bounce rate −10%</div>
     </div>
 
     <!-- Prioritisation -->
     <div>
       <p class="case-section-label">Prioritisation</p>
-      <h2 class="case-heading">Fix order: biggest reach, lowest effort first.</h2>
-      <p class="case-body">Five findings, one backlog. Ordered by reach — the fix that affects the most users with the least implementation cost goes first.</p>
-      <p class="case-body" style="margin-top:8px; font-weight:600; color: var(--zr);">Login gate → Category nav → Stack offers → Hero conversion → Product imagery</p>
-
-      <div class="priority-grid">
-        <div class="priority-card">
-          <p class="p-tag">First — Finding 2</p>
-          <h3>Remove the login gate</h3>
-          <p>Affects every visitor who sees an offer. Show code directly, move account creation to checkout. Highest reach, lowest effort — likely a config change plus legal sign-off.</p>
-          <p class="p-effort">~1 sprint · Config + legal review</p>
-        </div>
-        <div class="priority-card">
-          <p class="p-tag">Second — Finding 3</p>
-          <h3>Visible category navigation</h3>
-          <p>Sticky category row below nav. One frontend component. Affects every session on every device — orientation is the first UX job of any start page.</p>
-          <p class="p-effort">~1 sprint · Frontend component</p>
-        </div>
-        <div class="priority-card">
-          <p class="p-tag">Third — Finding 4</p>
-          <h3>Stack the offers</h3>
-          <p>Replace carousel with stacked cards for the offer section. All deals visible on first scroll. Low engineering effort — slides 2 and 3 currently have near-zero reach.</p>
-          <p class="p-effort">~1–2 sprints · Layout change</p>
-        </div>
-        <div class="priority-card">
-          <p class="p-tag">Fourth — Findings 1 + 5</p>
-          <h3>Hero + product imagery</h3>
-          <p>Bigger redesign: replace the brand hero with conversion content and add product photography. Requires design, content pipeline, and cross-team alignment.</p>
-          <p class="p-effort">~3 sprints · Design + content</p>
-        </div>
-      </div>
+      <h2 class="case-heading">Priorization of Fixes: biggest reach, lowest effort first.</h2>
+      <p class="case-body">Now let's implement these improvements and add them to the shop roadmap. How should we prioritize them?</p>
+      <p class="case-body">By reach and effort: the changes that impact the most users while requiring the least implementation effort come first. This ensures the highest business impact with the lowest cost.</p>
+      <ol class="case-body" style="padding-left:1.3em; line-height:2;">
+        <li>Login gate — Affects every visitor who sees an offer.</li>
+        <li>Category nav — Affects every session on every device and gives fundamental orientation.</li>
+        <li>Hero conversion — Important conversion trigger.</li>
+        <li>Product imagery — Increases product intent and browsing depth.</li>
+      </ol>
     </div>
 
     <!-- What's next -->
     <div>
-      <p class="case-section-label">What's Next</p>
-      <h2 class="case-heading">The start page is the entry point. The funnel goes deeper.</h2>
+      <p class="case-section-label">Sum up &amp; Next steps</p>
+      <h2 class="case-heading">Fix the start page. Go deeper.</h2>
       <p class="case-body">Fix the start page and you increase the volume entering the funnel. The next audit layer is the category page and product detail page — the steps between start page and add-to-cart. After that: the checkout funnel.</p>
-
-      <div class="item-list" style="margin-top: 20px;">
-        <div class="item-list-item">
-          <span class="item-num">→</span>
-          <div>
-            <p class="item-title">Category page UX</p>
-            <p class="item-desc">Filter usability, sorting defaults, product card density — the decisions that determine whether browsing converts to intent.</p>
-          </div>
-        </div>
-        <div class="item-list-item">
-          <span class="item-num">→</span>
-          <div>
-            <p class="item-title">Product detail page (PDP)</p>
-            <p class="item-desc">Add-to-cart affordance, subscription nudge, cross-sell placement. The PDP is where intent either converts or dies.</p>
-          </div>
-        </div>
-        <div class="item-list-item">
-          <span class="item-num">→</span>
-          <div>
-            <p class="item-title">Checkout funnel</p>
-            <p class="item-desc">Cookie wall blocking the session, invisible add-to-cart button, 3-click cart-to-checkout tax — documented separately in the ZooRoyal Checkout Audit.</p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="case-cta">
