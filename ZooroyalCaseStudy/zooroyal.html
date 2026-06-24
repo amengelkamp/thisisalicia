@@ -399,6 +399,8 @@
           <p class="finding-side-label before">Current</p>
           <div class="phone-frame">
             <div class="phone-screen" style="background: url('startpage-before.png') no-repeat top center / cover;"></div>
+            <div style="position:absolute; left:12px; right:12px; top:10px; height:100px; background:rgba(255,255,255,0.75); border-radius:42px 42px 0 0; pointer-events:none;"></div>
+            <div style="position:absolute; left:12px; right:12px; top:215px; bottom:14px; background:rgba(255,255,255,0.75); border-radius:0 0 42px 42px; pointer-events:none;"></div>
           </div>
         </div>
 
@@ -406,20 +408,25 @@
           <p class="finding-side-label after">Improved</p>
           <div class="phone-frame">
             <div class="phone-screen">
-              <div style="height:48px; background:url('startpage-before.png') no-repeat top center / 256px auto; flex-shrink:0;"></div>
-              <div style="background:var(--zr); padding:6px 12px 10px;">
-                <div style="background:white; border-radius:8px; padding:7px 10px; display:flex; align-items:center; gap:6px; font-size:10px; color:#aaa;">
-                  <div class="zr-search-o" style="border-color:#aaa;"></div>
-                  Suche nach Produkten, Marken…
+              <!-- dim: nav + search + tabs -->
+              <div style="position:relative;">
+                <div style="height:48px; background:url('startpage-before.png') no-repeat top center / 256px auto; flex-shrink:0;"></div>
+                <div style="background:var(--zr); padding:6px 12px 10px;">
+                  <div style="background:white; border-radius:8px; padding:7px 10px; display:flex; align-items:center; gap:6px; font-size:10px; color:#aaa;">
+                    <div class="zr-search-o" style="border-color:#aaa;"></div>
+                    Suche nach Produkten, Marken…
+                  </div>
                 </div>
+                <div class="zr-cat-row" style="background:white; border-bottom:1px solid #eee;">
+                  <div class="zr-cat-item sel">Hunde</div>
+                  <div class="zr-cat-item">Katzen</div>
+                  <div class="zr-cat-item">Kleintiere</div>
+                  <div class="zr-cat-item">Vögel</div>
+                  <div class="zr-cat-item">Fisch</div>
+                </div>
+                <div style="position:absolute; inset:0; background:rgba(255,255,255,0.75); pointer-events:none; z-index:5;"></div>
               </div>
-              <div class="zr-cat-row" style="background:white; border-bottom:1px solid #eee;">
-                <div class="zr-cat-item sel">Hunde</div>
-                <div class="zr-cat-item">Katzen</div>
-                <div class="zr-cat-item">Kleintiere</div>
-                <div class="zr-cat-item">Vögel</div>
-                <div class="zr-cat-item">Fisch</div>
-              </div>
+              <!-- focus: discount card -->
               <div style="margin:6px 10px; border-radius:14px; overflow:hidden; position:relative;">
                 <div style="position:absolute; inset:0; background:url('discount-bg.png') left 70%/cover no-repeat; transform:scale(-1,-1);"></div>
                 <div style="position:relative; z-index:1; padding:13px 14px;">
@@ -431,38 +438,42 @@
                   </div>
                 </div>
               </div>
-              <div class="finding-slabel">Top-Produkte für Hunde</div>
-              <div class="zr-products" style="padding:4px 10px 10px;">
-                <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-royalcanin.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
-                  <div class="zr-prod-name">Royal Canin Adult</div>
-                  <div class="zr-prod-bottom"><div class="zr-prod-price">€24,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+              <!-- dim: products -->
+              <div style="position:relative;">
+                <div class="finding-slabel">Top-Produkte für Hunde</div>
+                <div class="zr-products" style="padding:4px 10px 10px;">
+                  <div class="zr-prod">
+                    <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-royalcanin.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                    <div class="zr-prod-name">Royal Canin Adult</div>
+                    <div class="zr-prod-bottom"><div class="zr-prod-price">€24,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                  </div>
+                  <div class="zr-prod">
+                    <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-purina.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                    <div class="zr-prod-name">Purina Pro Plan Adult</div>
+                    <div class="zr-prod-bottom"><div class="zr-prod-price">€29,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                  </div>
+                  <div class="zr-prod">
+                    <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-happydog.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                    <div class="zr-prod-name">Happy Dog NaturCroq</div>
+                    <div class="zr-prod-bottom"><div class="zr-prod-price">€19,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                  </div>
+                  <div class="zr-prod">
+                    <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-pedigree.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                    <div class="zr-prod-name">Pedigree Vital Protection</div>
+                    <div class="zr-prod-bottom"><div class="zr-prod-price">€14,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                  </div>
+                  <div class="zr-prod">
+                    <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-r3left.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                    <div class="zr-prod-name">Wolfsblut Wild Duck</div>
+                    <div class="zr-prod-bottom"><div class="zr-prod-price">€22,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                  </div>
+                  <div class="zr-prod">
+                    <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-r3right.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
+                    <div class="zr-prod-name">Bosch Adult</div>
+                    <div class="zr-prod-bottom"><div class="zr-prod-price">€16,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
+                  </div>
                 </div>
-                <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-purina.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
-                  <div class="zr-prod-name">Purina Pro Plan Adult</div>
-                  <div class="zr-prod-bottom"><div class="zr-prod-price">€29,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
-                </div>
-                <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-happydog.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
-                  <div class="zr-prod-name">Happy Dog NaturCroq</div>
-                  <div class="zr-prod-bottom"><div class="zr-prod-price">€19,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
-                </div>
-                <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-pedigree.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
-                  <div class="zr-prod-name">Pedigree Vital Protection</div>
-                  <div class="zr-prod-bottom"><div class="zr-prod-price">€14,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
-                </div>
-                <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-r3left.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
-                  <div class="zr-prod-name">Wolfsblut Wild Duck</div>
-                  <div class="zr-prod-bottom"><div class="zr-prod-price">€22,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
-                </div>
-                <div class="zr-prod">
-                  <div class="zr-prod-img" style="aspect-ratio:4/3; background:url('prod-r3right.png') center/cover no-repeat; background-color:#f5f5f5;"></div>
-                  <div class="zr-prod-name">Bosch Adult</div>
-                  <div class="zr-prod-bottom"><div class="zr-prod-price">€16,99</div><button class="zr-prod-cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg></button></div>
-                </div>
+                <div style="position:absolute; inset:0; background:rgba(255,255,255,0.75); pointer-events:none; z-index:5;"></div>
               </div>
             </div>
           </div>
