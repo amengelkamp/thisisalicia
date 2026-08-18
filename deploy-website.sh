@@ -9,6 +9,7 @@ YNAB_FEATURE_PATH="$(cd "$(dirname "$0")/../ynabAmazonFeature" && pwd)/"
 rsync -avz --delete --chmod=D755,F644 \
   --exclude='.git' \
   --exclude='drafts/' \
+  --exclude='YNABCaseStudy/' \
   --exclude='*.md' \
   --exclude='.gitignore' \
   --exclude='deploy-website.sh' \
